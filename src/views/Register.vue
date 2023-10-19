@@ -77,6 +77,7 @@ export default {
       } else if (this.formData.password !== this.formData.passwordRepeat) {
         alert('Passwords do not match. Please check and try again.');
       } else {
+        alert('Registration successful. You can now log in.');
         this.$router.push('/Login');
       }
     },
