@@ -18,6 +18,7 @@ import Continutors from "../views/ContrinutorsListView.vue";
 import NotFoundView from '@/views/NotFoundView.vue';
 import NetworkErrorView from '@/views/NetworkErrorView.vue';
 import Login from "../views/Login.vue";
+import Register from "../views/Register.vue";
 
 
 const router = createRouter({
@@ -53,6 +54,11 @@ const router = createRouter({
       path: "/Login",
       name: "Login",
       component: Login,
+    },
+    {
+      path: "/Register",
+      name: "Register",
+      component: Register,
     },
     {
       path: "/",
