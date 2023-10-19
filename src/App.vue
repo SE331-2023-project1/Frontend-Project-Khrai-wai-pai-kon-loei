@@ -47,12 +47,12 @@ const sendPost = () => {
 
 <template>
   <header>
-    <button @click.prevent="sendPost">submit</button>
-    <button></button>
-    <button></button>
-
+    
+    <!-- test keep access token
+      <button @click.prevent="sendPost">submit</button> -->
 
     <div id="flashMessage" v-if="message">
+      
       <div
         role= "alert"
         class="rounded-xl border border-gray-100 bg-white p-4 shadow-xl"
