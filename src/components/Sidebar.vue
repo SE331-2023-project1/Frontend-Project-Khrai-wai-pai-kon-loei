@@ -30,6 +30,12 @@
 				<span class="material-symbols-outlined">note</span>
 				<span class="text">Form</span>
 			</RouterLink>
+
+			<!-- link to login -->
+			<RouterLink :to="{ name: 'Login' }" class="button">
+                <span class="material-symbols-outlined">login</span>
+                <span class="text">Login</span>
+			</RouterLink>
 		</div>
 	</aside>
 </template>

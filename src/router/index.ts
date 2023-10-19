@@ -17,7 +17,7 @@ import { useTeacherAllStore } from '@/stores/all_teacher';
 import Continutors from "../views/ContrinutorsListView.vue";
 import NotFoundView from '@/views/NotFoundView.vue';
 import NetworkErrorView from '@/views/NetworkErrorView.vue';
-
+import Login from "../views/Login.vue";
 
 
 const router = createRouter({
@@ -48,6 +48,11 @@ const router = createRouter({
         page: parseInt((route.query?.page as string) || "1"),
         pageSize: parseInt((route.query?.page as string) || "2"),
       }),
+    },
+    {
+      path: "/Login",
+      name: "Login",
+      component: Login,
     },
     {
       path: "/",
