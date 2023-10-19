@@ -1,0 +1,277 @@
+{
+  "students": [
+    {
+      "name": "Emily",
+      "surname": "Johnson",
+      "studentid": "EJ2023",
+      "profileimage": "https://tinyurl.com/3fzfjvzx",
+      "courselist": ["Computer Science", "Mathematics"],
+      "teacherID": "AJ1234",
+      "comment":[]
+    },
+    {
+      "name": "Daniel",
+      "surname": "Martinez",
+      "studentid": "DM2023",
+      "profileimage": "https://tinyurl.com/yzj4jmzk",
+      "courselist": ["Mechanical Engineering", "Physics"],
+      "teacherID": "AJ1234",
+      "comment":[]
+    },
+    {
+      "name": "Sophia",
+      "surname": "Lee",
+      "studentid": "SL2023",
+      "profileimage": "https://tinyurl.com/ymy6n2kb",
+      "courselist": ["Business Administration", "Economics"],
+      "teacherID": "SL5678",
+      "comment":[]
+    },
+    {
+      "name": "Liam",
+      "surname": "Anderson",
+      "studentid": "LA2023",
+      "profileimage": "https://tinyurl.com/2bhuruxf",
+      "courselist": ["Biology", "Chemistry"],
+      "teacherID": "SL5678",
+      "comment":[]
+    },
+    {
+      "name": "Olivia",
+      "surname": "Smith",
+      "studentid": "OS2023",
+      "profileimage": "https://tinyurl.com/bdz5jzu7",
+      "courselist": ["Psychology", "Sociology"],
+      "teacherID": "BR7890",
+      "comment":[]
+    },
+    {
+      "name": "Ethan",
+      "surname": "Brown",
+      "studentid": "EB2023",
+      "profileimage": "https://tinyurl.com/2p8a59ny",
+      "courselist": ["Economics", "Statistics"],
+      "teacherID": "BR7890",
+      "comment":[]
+    },
+    {
+      "name": "Ava",
+      "surname": "Wilson",
+      "studentid": "AW2023",
+      "profileimage": "https://tinyurl.com/mvux33jw",
+      "courselist": ["Fine Arts", "Graphic Design"],
+      "teacherID": "EC4321",
+      "comment":[]
+    },
+    {
+      "name": "Jackson",
+      "surname": "Taylor",
+      "studentid": "JT2023",
+      "profileimage": "https://tinyurl.com/mv4zvh8a",
+      "courselist": ["Political Science", "History"],
+      "teacherID": "EC4321",
+      "comment":[]
+    },
+    {
+      "name": "Mia",
+      "surname": "Rodriguez",
+      "studentid": "MR2023",
+      "profileimage": "https://tinyurl.com/3xxra7xh",
+      "courselist": ["Journalism", "Communication"],
+      "teacherID": "DJ8765",
+      "comment":[]
+    },
+    {
+      "name": "Aiden",
+      "surname": "Martinez",
+      "studentid": "AM2023",
+      "profileimage": "https://tinyurl.com/3ustxvza",
+      "courselist": ["Environmental Science", "Geology"],
+      "teacherID": "DJ8765",
+      "comment":[]
+    },
+    {
+      "name": "Isabella",
+      "surname": "Davis",
+      "studentid": "ID2023",
+      "profileimage": "https://tinyurl.com/4nf7te5n",
+      "courselist": ["Literature", "Creative Writing"],
+      "teacherID": "OD5678",
+      "comment":[]
+    },
+    {
+      "name": "Lucas",
+      "surname": "Johnson",
+      "studentid": "LJ2023",
+      "profileimage": "https://tinyurl.com/5xz6yfyy",
+      "courselist": ["Physics", "Astrophysics"],
+      "teacherID": "OD5678",
+      "comment":[]
+    },
+    {
+      "name": "Mia",
+      "surname": "Patel",
+      "studentid": "MP2023",
+      "profileimage": "https://tinyurl.com/4jk8pa6r",
+      "courselist": ["Medicine", "Genetics"],
+      "teacherID": "JM2345",
+      "comment":[]
+    },
+    {
+      "name": "William",
+      "surname": "White",
+      "studentid": "WW2023",
+      "profileimage": "https://tinyurl.com/bnxm4zcf",
+      "courselist": ["Architecture", "Urban Planning"],
+      "teacherID": "JM2345",
+      "comment":[]
+    },
+    {
+      "name": "Harper",
+      "surname": "Adams",
+      "studentid": "HA2023",
+      "profileimage": "https://tinyurl.com/yt7t5z3r",
+      "courselist": ["History", "Archaeology"],
+      "teacherID": "AW9012",
+      "comment":[]
+    },
+    {
+      "name": "Benjamin",
+      "surname": "Wilson",
+      "studentid": "BW2023",
+      "profileimage": "https://tinyurl.com/bddffmrt",
+      "courselist": ["Mathematics", "Data Science"],
+      "teacherID": "AW9012",
+      "comment":[]
+    },
+    {
+      "name": "Evelyn",
+      "surname": "Moore",
+      "studentid": "EM2023",
+      "profileimage": "https://tinyurl.com/3k5fuapz",
+      "courselist": ["Music", "Composition"],
+      "teacherID": "WM3456",
+      "comment":[]
+    },
+    {
+      "name": "Samuel",
+      "surname": "Thompson",
+      "studentid": "ST2023",
+      "profileimage": "https://tinyurl.com/yfs9ps4z",
+      "courselist": ["Sociology", "Anthropology"],
+      "teacherID": "WM3456",
+      "comment":[]
+    },
+    {
+      "name": "Victoria",
+      "surname": "Clark",
+      "studentid": "VC2023",
+      "profileimage": "https://tinyurl.com/4kf7hhm7",
+      "courselist": ["Linguistics", "Language Acquisition"],
+      "teacherID": "ST7890",
+      "comment":[]
+    },
+    {
+      "name": "Henry",
+      "surname": "Adams",
+      "studentid": "HA2023",
+      "profileimage": "https://tinyurl.com/bdfpntu3",
+      "courselist": ["Film Studies", "Cinematography"],
+      "teacherID": "ST7890",
+      "comment":[]
+    }
+  ],
+    "teachers": [
+      {
+        "name": "John",
+        "surname": "Smith",
+        "teacherID": "AJ1234",
+        "profileimage": "https://tinyurl.com/2rfc47ey",
+        "courselist": ["MATH101", "HIST102"]
+      },
+      {
+        "name": "Sarah",
+        "surname": "Johnson",
+        "teacherID": "SL5678",
+        "profileimage": "https://tinyurl.com/ehu7mv54",
+        "courselist": ["MATH101", "SCI103"]
+      },
+      {
+        "name": "Michael",
+        "surname": "Williams",
+        "teacherID": "BR7890",
+        "profileimage": "https://tinyurl.com/7tta6ehv",
+        "courselist": ["HIST102", "SCI103"]
+      },
+      {
+        "name": "Emily",
+        "surname": "Brown",
+        "teacherID": "EC4321",
+        "profileimage": "https://tinyurl.com/5n7vpjpe",
+        "courselist": ["MATH101"]
+      },
+      {
+        "name": "Daniel",
+        "surname": "Jones",
+        "teacherID": "DJ8765",
+        "profileimage": "https://tinyurl.com/mtrnwu3m",
+        "courselist": ["SCI103"]
+      },
+      {
+        "name": "Olivia",
+        "surname": "Davis",
+        "teacherID": "OD5678",
+        "profileimage": "https://tinyurl.com/bdae3j78",
+        "courselist": ["MATH101", "HIST102", "SCI103"]
+      },
+      {
+        "name": "James",
+        "surname": "Miller",
+        "teacherID": "JM2345",
+        "profileimage": "https://tinyurl.com/2wtw9st6",
+        "courselist": ["HIST102"]
+      },
+      {
+        "name": "Ava",
+        "surname": "Wilson",
+        "teacherID": "AW9012",
+        "profileimage": "https://tinyurl.com/4jct2kkk",
+        "courselist": ["MATH101", "SCI103"]
+      },
+      {
+        "name": "William",
+        "surname": "Moore",
+        "teacherID": "WM3456",
+        "profileimage": "https://tinyurl.com/ysfsmdfc",
+        "courselist": ["MATH101", "HIST102"]
+      },
+      {
+        "name": "Sophia",
+        "surname": "Taylor",
+        "teacherID": "ST7890",
+        "profileimage": "https://tinyurl.com/yckvnp8y",
+        "courselist": ["SCI103"]
+      }
+  ],
+  "contributors": [
+    {
+      "name": "Danaikrit",
+      "surname": "Jaiwong",
+      "studentId": "642115016",
+      "profileimage": "https://tinyurl.com/2p82v7d6"
+    },
+    {
+      "name": "Pattanachai",
+      "surname": "Nuyamang",
+      "studentId": "642115027",
+      "profileimage": "https://tinyurl.com/4krnz4r4"
+    },
+    {
+      "name": "Pharanya",
+      "surname": "Liwiriyasakul",
+      "studentId": "642115035",
+      "profileimage": "https://tinyurl.com/wj4w23tk"
+    }
+  ]
+  
+}

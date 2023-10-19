@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+
+.material-symbols-outlined {
+    @apply text-[#9370DB] ;
+  
+    /* Set the icon color to purple */
+  }
+  aside {
+    @apply flex flex-col bg-[#f3b3f0] text-[#d670db] w-[calc(2rem_+_32px)] overflow-hidden min-h-screen transition-[0.2s] duration-[ease-in-out] p-4 max-w-screen-md;
+  }
+
+  aside .flex {
+    @apply flex-1;
+    
+  }
+  aside .logo {
+  @apply flex justify-center items-center transition-transform duration-[0.2s] ease-[ease-in-out] mb-4;
+}
+aside .logo img {
+    @apply min-w-[3rem] max-w-[70%] h-full transition-[width] duration-[0.2s] ease-[ease-in-out];
+  }
+  aside .menu-toggle-wrap {
+    @apply flex justify-end relative transition-[0.2s] duration-[ease-in-out] mb-4 top-0;
+  }
+  aside .menu-toggle-wrap .menu-toggle {
+    @apply transition-[0.2s] duration-[ease-in-out];
+  }
+  aside .menu-toggle-wrap .menu-toggle .material-icons {
+    @apply text-[2rem] text-[#9370DB] transition-[0.2s] duration-[ease-out];
+  
+    /* Purple pastel color */
+  }
+  aside .menu-toggle-wrap .menu-toggle:hover .material-icons {
+    @apply text-[#FF69B4] translate-x-2;
+  
+    /* Pink pastel color */
+  }
+  aside h3,
+  aside .button .text {
+    @apply opacity-0 transition-opacity duration-[0.3s] ease-[ease-in-out];
+  }
+  aside h3 {
+    @apply text-[#9370DB] text-sm uppercase mb-2;
+  
+    /* Purple pastel color */
+  }
+  aside .menu {
+    @apply mr-[-1rem] ml-[-1rem] my-0;
+  }
+  aside .menu .button {
+    @apply flex items-center no-underline transition-[0.2s] duration-[ease-in-out] px-4 py-2 hover:bg-[#FF69B4];
+  }
+  aside .menu .button .material-icons {
+    @apply text-[2rem] text-[#9370DB] transition-[0.2s] duration-[ease-in-out];
+  
+    /* Purple pastel color */
+  }
+  aside .menu .button .text {
+    @apply text-[#9370DB] transition-[0.2s] duration-[ease-in-out];
+  
+    /* Purple pastel color */
+  }
+  
+  /* Pink pastel color */
+  aside .menu .button:hover .material-icons,
+  aside .menu .button:hover .text {
+    @apply text-white;
+  
+    /* Main white color */
+  }
+  aside .menu .button.router-link-exact-active {
+    @apply bg-[#FF69B4]  border-0 border-solid border-white bg-[url('https://img1.picmix.com/output/stamp/normal/6/4/2/6/1896246_c6324.gif')];
+  
+    /* Pink pastel color */
+  }
+  
+  /* Main white color */
+  aside .menu .button.router-link-exact-active .material-icons,
+  aside .menu .button.router-link-exact-active .text {
+    @apply text-white;
+  
+    /* Main white color */
+  }
+  aside .footer {
+    @apply opacity-0 transition-opacity duration-[0.3s] ease-[ease-in-out];
+  }
+  aside .footer p {
+    @apply text-sm text-[#9370DB];
+  
+    /* Purple pastel color */
+  }
+  aside.is-expanded {
+    @apply max-w-screen-md min-w-[20%] ;
+  }
+  aside.is-expanded .menu-toggle-wrap {
+    @apply top-[-3rem];
+  }
+  aside.is-expanded .menu-toggle-wrap .menu-toggle {
+    @apply -rotate-180;
+  }
+  aside.is-expanded h3,
+  aside.is-expanded .button .text {
+    @apply opacity-100;
+  }
+  aside.is-expanded .button .material-icons {
+    @apply mr-4;
+  }
+  aside.is-expanded .footer {
+    @apply opacity-0;
+  }
+  @media (max-width: ) {
+    aside {
+      @apply fixed z-[99];
+    }
+  }
