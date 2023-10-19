@@ -8,20 +8,32 @@ import StudentService from "@/services/StudentService";
 import { useStudentAllStore } from "@/stores/all_student";
 import { useMessageStore } from "./stores/message";
 import { storeToRefs } from "pinia";
+import axios from "axios";
 
 const store = useMessageStore();
 const { message } = storeToRefs(store);
 const studentStore_all = useStudentAllStore();
 const teacherStoreAll = useTeacherAllStore();
 
-onMounted(async () => {
-  try {
-    const response = await TeacherService.getTeachers();
-    teacherStoreAll.setTeacherArray(response.data);
-  } catch (error) {
-    console.error(error);
-  }
-});
+// onMounted(async () => {
+//   try {
+//     const response = await TeacherService.getTeachers();
+//     teacherStoreAll.setTeacherArray(response.data);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
+
+const hello = () => {
+  console.log("asdfasdfsdfsdf")
+}
+
+const sendPost = () => {
+  const postData = { firstname: "AA" , lastname: "BB", email: "asdas@gmail.com", username: "Teacher1234" , password: "123456" }
+  axios.post("http://localhost:8080/api/v1/auth/register/teacher", postData).then(res => {
+    localStorage.setItem('access_token', res.data.access_token)
+  })
+}
 
 // onMounted(async () => {
 //   try {
@@ -35,9 +47,14 @@ onMounted(async () => {
 
 <template>
   <header>
+    <button @click.prevent="sendPost">submit</button>
+    <button></button>
+    <button></button>
+
+
     <div id="flashMessage" v-if="message">
       <div
-        role="alert"
+        role= "alert"
         class="rounded-xl border border-gray-100 bg-white p-4 shadow-xl"
       >
         <div class="flex items-start gap-4">

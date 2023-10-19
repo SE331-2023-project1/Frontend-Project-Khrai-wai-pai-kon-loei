@@ -4,7 +4,7 @@ import { ref, watchEffect } from 'vue'
 import type { Ref } from 'vue'
 import ContributorsService from '@/services/ContributorsService'
 import  ContributorsCard  from "../components/ContributorsCard.vue";
-
+import axios from "axios";
 
 const contributors: Ref<Array<Contributor>> = ref([])
 
@@ -19,13 +19,18 @@ const props = defineProps({
   // }
 })
 
-watchEffect(() => {
-    ContributorsService.getContributors(3, 1).then((response) => {
-    console.log(response)
-    contributors.value = response.data
+// watchEffect(() => {
+//     ContributorsService.getContributors(3, 1).then((response) => {
+//     console.log(response)
+//     contributors.value = response.data
+//   })
+// })
+const sendPost = () => {
+  const postData = { firstname: "AA" , lastname: "BB", email: "asdas@gmail.com", username: "Teacher1234" , password: "123456" }
+  axios.post("localhost:8080/api/v1/auth/register/teacher", postData).then(res => {
+    console.log(res)
   })
-})
-
+}
 </script>
 
 
@@ -48,6 +53,7 @@ watchEffect(() => {
     <div class="eye-r hide-on-small-screen"></div>
     <div class="mouth hide-on-small-screen"></div>
   </div>
+  <button @click="sendPost()">submit</button>
   </main>
 </template>
 
