@@ -52,8 +52,8 @@ const router = createRouter({
     },
     {
       path: "/Login",
-      name: "Login",
-      component: Login,
+      name: "home",
+      component: Continutors,
     },
     {
       path: "/Register",
@@ -62,8 +62,8 @@ const router = createRouter({
     },
     {
       path: "/",
-      name: "home",
-      component: Continutors,
+      name: "Login",
+      component: Login,
     },
 
     {
