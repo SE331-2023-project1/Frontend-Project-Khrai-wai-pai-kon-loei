@@ -250,9 +250,9 @@ const addStudent = () => {
     }
     
     @media (min-width: 1024px) {
-      .form {
+      /* .form {
         margin-top: 100px;
-      }
+      } */
       input{
         width: 100%;
       }
