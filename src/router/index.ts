@@ -20,6 +20,7 @@ import NetworkErrorView from '@/views/NetworkErrorView.vue';
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Announcement from "../views/announcement/AnnouncementView.vue"
+import CreateAnnouncementView from '../views/announcement/CreateAnnouncementView.vue'
 
 
 const router = createRouter({
@@ -65,6 +66,11 @@ const router = createRouter({
       path: "/Announcement",
       name: "Announcement",
       component: Announcement,
+    },
+    {
+      path: "/Create-Announcement",
+      name: "CreateAnnouncement",
+      component: CreateAnnouncementView,
     },
     {
       path: "/",

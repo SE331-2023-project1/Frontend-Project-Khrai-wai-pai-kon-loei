@@ -37,8 +37,12 @@
                 <span class="text">Login</span>
 			</RouterLink>
 			<RouterLink :to="{ name: 'Announcement' }" class="button">
-                <span class="material-symbols-outlined">Announcement</span>
+                <span class="material-symbols-outlined">Notifications</span>
                 <span class="text">Announcement</span>
+			</RouterLink>
+			<RouterLink :to="{ name: 'CreateAnnouncement' }" class="button">
+                <span class="material-symbols-outlined">Announcement</span>
+                <span class="text">CreateAnnouncement</span>
 			</RouterLink>
 		</div>
 	</aside>
