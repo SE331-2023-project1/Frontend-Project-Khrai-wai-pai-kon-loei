@@ -41,6 +41,9 @@
 </template>
 
 <script>
+
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -51,10 +54,28 @@ export default {
     };
   },
   methods: {
+    sendPost() {
+      // Create a payload object from formData
+      const postData = {
+        username: this.formData.username,
+        password: this.formData.password,
+      };
+
+      axios.post("http://localhost:8080/api/v1/auth/authenticate", postData)
+        .then(res => {
+          // Handle the API response, e.g., store access token in local storage
+          localStorage.setItem('access_token', res.data.access_token);
+        })
+        .catch(error => {
+          // Handle API errors here
+          console.error('Error:', error);
+        });
+    },
     login() {
       if (!this.formData.username || !this.formData.password) {
         alert('Please fill in both the username and password fields.');
       } else {
+        this.sendPost(); // Call the sendPost function to send data to the API
         this.$router.push('/');
       }
     },

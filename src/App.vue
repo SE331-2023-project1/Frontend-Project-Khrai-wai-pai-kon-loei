@@ -24,16 +24,12 @@ const teacherStoreAll = useTeacherAllStore();
 //   }
 // });
 
-const hello = () => {
-  console.log("asdfasdfsdfsdf")
-}
-
-const sendPost = () => {
-  const postData = { firstname: "AA" , lastname: "BB", email: "asdas@gmail.com", username: "Teacher1234" , password: "123456" }
-  axios.post("http://localhost:8080/api/v1/auth/register/teacher", postData).then(res => {
-    localStorage.setItem('access_token', res.data.access_token)
-  })
-}
+// const sendPost = () => {
+//   const postData = { firstname: "AA" , lastname: "BB", email: "asdas@gmail.com", username: "Teacher1234" , password: "123456" }
+//   axios.post("http://localhost:8080/api/v1/auth/register", postData).then(res => {
+//     localStorage.setItem('access_token', res.data.access_token)
+//   })
+// }
 
 // onMounted(async () => {
 //   try {

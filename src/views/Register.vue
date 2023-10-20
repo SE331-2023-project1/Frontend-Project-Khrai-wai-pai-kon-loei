@@ -9,7 +9,20 @@
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
       <form class="space-y-6" @submit.prevent="signup">
         <div>
-          <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+          <label for="username" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
+          <div class="mt-2">
+            <input id="firstname" v-model="formData.firstname" type="text" autocomplete="username" required class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+          </div>
+        </div>
+        <div>
+          <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
+          <div class="mt-2">
+            <input id="lastname" v-model="formData.lastname" type="text" autocomplete="username" required class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+          </div>
+        </div>
+
+        <div>
+          <label for="username" class="block text-sm font-medium leading-6 text-gray-900">User name</label>
           <div class="mt-2">
             <input id="username" v-model="formData.username" type="text" autocomplete="username" required class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
           </div>
@@ -36,7 +49,7 @@
         <!-- repeat password -->
         <div>
           <div class="flex items-center justify-between">
-            <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Repeat Password</label>
+            <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Confirm Password</label>
           </div>
           <div class="mt-2">
             <input id="passwordRepeat" v-model="formData.passwordRepeat" type="password" autocomplete="new-password" required class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
@@ -59,10 +72,14 @@
 </template>
 
 <script>
+import axios from 'axios'; // Make sure to import Axios
+
 export default {
   data() {
     return {
       formData: {
+        firstname: '',
+        lastname:' ',
         username: '',
         email: '',
         password: '',
@@ -71,16 +88,38 @@ export default {
     };
   },
   methods: {
+    sendPost() {
+      // Create a payload object from formData
+      const postData = {
+        firstname: this.formData.firstname,
+        lastname: this.formData.lastname,
+        email: this.formData.email,
+        username: this.formData.username,
+        password: this.formData.password,
+      };
+
+      axios.post("http://localhost:8080/api/v1/auth/register", postData)
+        .then(res => {
+          // Handle the API response, e.g., store access token in local storage
+          localStorage.setItem('access_token', res.data.access_token);
+        })
+        .catch(error => {
+          // Handle API errors here
+          console.error('Error:', error);
+        });
+    },
     signup() {
-      if (!this.formData.username || !this.formData.email || !this.formData.password || !this.formData.passwordRepeat) {
+      if (!this.formData.firstname || !this.formData.lastname || !this.formData.username || !this.formData.email || !this.formData.password || !this.formData.passwordRepeat) {
         alert('Please fill in all required fields.');
       } else if (this.formData.password !== this.formData.passwordRepeat) {
         alert('Passwords do not match. Please check and try again.');
       } else {
+        this.sendPost(); // Call the sendPost function to send registration data to the API
         alert('Registration successful. You can now log in.');
         this.$router.push('/Login');
       }
     },
   },
 };
+
 </script>
