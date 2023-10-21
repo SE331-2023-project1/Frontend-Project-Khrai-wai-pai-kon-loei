@@ -107,34 +107,34 @@ const router = createRouter({
       component: Continutors,
     },
 
-    {
-      path: '/student/:studentid',
-      name: 'student-layout',
-      component: StudentlayoutView,
-      props: (route) => ({ id: route.params.id }),
-      beforeEnter: (to) => {
-        const id = to.params.studentid as string
-        const studentStore = useStudentStore()
-        const studentStore_all = useStudentAllStore();
-        const student = studentStore_all.findStudentById(id);
-        console.log(studentStore_all.getAllStudent())
-        if (student) {
-          studentStore.setStudent(student);
-      } else {
+    // {
+    //   path: '/student/:studentid',
+    //   name: 'student-layout',
+    //   component: StudentlayoutView,
+    //   props: (route) => ({ id: route.params.id }),
+    //   beforeEnter: (to) => {
+    //   //   // const id = to.params.studentid as string
+    //   //   // const studentStore = useStudentStore()
+    //   //   // const studentStore_all = useStudentAllStore();
+    //   //   // const student = studentStore_all.findStudentById(id);
+    //   //   // console.log(studentStore_all.getAllStudent())
+    //   //   if (student) {
+    //   //     studentStore.setStudent(student);
+    //   // } else {
          
-      }
-        console.log(studentStore.getAllStudent())
-      },
+    //   // }
+    //   //   console.log(studentStore.getAllStudent())
+    //   },
 
-      children: [
-        {
-          path: "",
-          name: "student-detail",
-          component: StudentDetailView,
-          props: true,
-        },
-      ],
-    },
+    //   children: [
+    //     {
+    //       path: "",
+    //       name: "student-detail",
+    //       component: StudentDetailView,
+    //       props: true,
+    //     },
+    //   ],
+    // },
     {
       path: "/teacher/:teacherID",
       name: "teacher-layout",
@@ -176,35 +176,35 @@ const router = createRouter({
     },
   ],
 });
-router.beforeEach(async (to, from, next) => {
-  NProgress.start();
+// router.beforeEach(async (to, from, next) => {
+//   NProgress.start();
 
-  const studentStore_all = useStudentAllStore();
-  const teacherStore_all = useTeacherAllStore();
+//   const studentStore_all = useStudentAllStore();
+//   const teacherStore_all = useTeacherAllStore();
 
-  if (studentStore_all.getLength() === 0) {
-    try {
-      const response = await StudentService.getStudents();
-      studentStore_all.setStudentArray(response.data);
-      next();
-    } catch (error) {
-      console.error("Error fetching students:", error);
-      next({ name: 'network-error', params: { message: 'Failed to fetch students.' }}); // Redirect to an error page if you want
-    }
-  }
-  if (teacherStore_all.getLength() === 0) {
-    try {
-      const response = await TeacherService.getTeachers();
-      teacherStore_all.setTeacherArray(response.data);
-      next();
-    } catch (error) {
-      console.error("Error fetching teachers:", error);
-      next({ name: 'network-error', params: { message: 'Failed to fetch teachers.' }}); // Redirect to an error page if you want
-    }
-  } else {
-    next();
-  }
-});
+//   if (studentStore_all.getLength() === 0) {
+//     try {
+//       const response = await StudentService.getStudents();
+//       studentStore_all.setStudentArray(response.data);
+//       next();
+//     } catch (error) {
+//       console.error("Error fetching students:", error);
+//       next({ name: 'network-error', params: { message: 'Failed to fetch students.' }}); // Redirect to an error page if you want
+//     }
+//   }
+//   if (teacherStore_all.getLength() === 0) {
+//     try {
+//       const response = await TeacherService.getTeachers();
+//       teacherStore_all.setTeacherArray(response.data);
+//       next();
+//     } catch (error) {
+//       console.error("Error fetching teachers:", error);
+//       next({ name: 'network-error', params: { message: 'Failed to fetch teachers.' }}); // Redirect to an error page if you want
+//     }
+//   } else {
+//     next();
+//   }
+// });
 
 router.afterEach(() => {
   NProgress.done();

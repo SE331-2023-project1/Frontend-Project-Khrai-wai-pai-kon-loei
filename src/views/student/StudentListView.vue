@@ -39,6 +39,24 @@ const hasNextPage = computed(() => {
   const totalPages = Math.ceil(student_all.value.length / pageSize);
   return props.page < totalPages;
 });
+console.log("super daddy V");
+
+onMounted(async () => {
+  // try {
+  //   if (studentStore.students.length === 0) {
+  //     await studentStore.fetchAllStudents()
+  //   }
+  // } catch (error) {
+  //   console.log('ERROR: ' + error)
+  // }
+  StudentService.getStudents(1,1).then((Studentlist)=>{
+    console.log(Studentlist.data);
+
+    // TODO : barear token ส่งได้ / เอาค่าที่ได้ใส่ตัวแปร displayedStudents
+  
+  })
+  // totalStudent.value = studentStore_all.getStudentsLength()
+})
 
 onBeforeRouteLeave((to, from, next) => {
   if (isFormValid.value) {
