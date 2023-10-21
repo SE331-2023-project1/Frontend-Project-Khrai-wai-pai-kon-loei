@@ -1,8 +1,14 @@
 <template>
+
   <div class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+      <div class="animate-flashMessage mb-4" v-if="message">
+        <h4>{{ message }}</h4>
+      </div>
       <img class="mx-auto h-60 w-60" src='../assets/logo.png' alt="logo" />
       <h2 class="mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Log In</h2>
+      
     </div>
 
     <!-- username-->
@@ -56,6 +62,8 @@ const messageStore = useMessageStore()
 
 
 const { message } = storeToRefs(messageStore)
+const { submessage } = storeToRefs(messageStore)
+const { svgPath } = storeToRefs(messageStore)
 
 const validationSchema = yup.object({
   username: yup.string().required('The username is required'),
@@ -82,15 +90,34 @@ const onSubmit = handleSubmit((values: { username: string; password: string }) =
     .then(() => {
       router.push({ name: 'home' })
       messageStore.updateMessage('Login Successful')
+      messageStore.updateSubmessage('bra bra bra bra bra')
+      const svgPath = `
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.0" stroke="currentColor" class="h-10 w-10">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+    `
+    messageStore.updateSvgPath(svgPath)
       setTimeout(() => {
-        messageStore.resetMessage()
+        messageStore.resetMessage(),
+        messageStore.resetSubmessage(),
+        messageStore.resetSvgPath()
       }, 5000)
     })
     .catch(() => {
-      messageStore.updateMessage('Could not login')
-
+      messageStore.updateMessage('Inccorrect Username or Password.')
+      messageStore.updateSubmessage('Please try again')
+      const svgPath = `
+        <svg fill="#B9261C" class="h-10 w-10" viewBox="0 0 200 200" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg">
+          <title />
+          <path d="M100,15a85,85,0,1,0,85,85A84.93,84.93,0,0,0,100,15Zm0,150a65,65,0,1,1,65-65A64.87,64.87,0,0,1,100,165Z" />
+          <path d="M128.5,74a9.67,9.67,0,0,0-14,0L100,88.5l-14-14a9.9,9.9,0,0,0-14,14l14,14-14,14a9.9,9.9,0,0,0,14,14l14-14,14,14a9.9,9.9,0,0,0,14-14l-14-14,14-14A10.77,10.77,0,0,0,128.5,74Z" />
+        </svg>
+    `
+    messageStore.updateSvgPath(svgPath)
       setTimeout(() => {
-        messageStore.resetMessage()
+        messageStore.resetMessage(),
+        messageStore.resetSubmessage(),
+        messageStore.resetSvgPath()
       }, 3000)
     })
 })
