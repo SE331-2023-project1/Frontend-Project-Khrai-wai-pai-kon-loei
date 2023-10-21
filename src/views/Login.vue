@@ -28,6 +28,7 @@
         <!-- Login button -->
         <div>
           <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Log in</button>
+          <FlashMessage ref="flashMessage" class="mt-2"/>        
         </div>
       </form>
 
@@ -43,8 +44,12 @@
 <script>
 
 import axios from 'axios';
+import FlashMessage from './FlashMessage.vue'; // Import the FlashMessage component
 
 export default {
+  components: {
+    FlashMessage,
+  },
   data() {
     return {
       formData: {
@@ -61,22 +66,25 @@ export default {
         password: this.formData.password,
       };
 
-      axios.post("http://localhost:8080/api/v1/auth/authenticate", postData)
-        .then(res => {
-          // Handle the API response, e.g., store access token in local storage
-          localStorage.setItem('access_token', res.data.access_token);
-        })
-        .catch(error => {
-          // Handle API errors here
-          console.error('Error:', error);
-        });
+      return axios.post("http://localhost:8080/api/v1/auth/authenticate", postData);
     },
     login() {
       if (!this.formData.username || !this.formData.password) {
         alert('Please fill in both the username and password fields.');
       } else {
-        this.sendPost(); // Call the sendPost function to send data to the API
-        this.$router.push('/');
+        this.sendPost()
+          .then(res => {
+            // Authentication successful
+            localStorage.setItem('access_token', res.data.access_token);
+            localStorage.setItem('user_role', res.data.user_role);
+            this.$router.push('/'); // Redirect to home page
+            console.log(res.data)
+          })
+          .catch(error => {
+            // Authentication error
+            console.error('Error:', error);
+            this.$refs.flashMessage.showMessage('Invalid username or password', 5000); // Show flash message
+          });
       }
     },
   },

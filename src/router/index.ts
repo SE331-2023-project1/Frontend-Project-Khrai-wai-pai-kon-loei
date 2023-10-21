@@ -21,7 +21,36 @@ import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Announcement from "../views/announcement/AnnouncementView.vue"
 import CreateAnnouncementView from '../views/announcement/CreateAnnouncementView.vue'
+import { useAuthStore } from '@/stores/auth.ts'
 
+// router.beforeEach(async () => {
+//   NProgress.start()
+//   const teacherStore = useTeacherStore()
+//   const studentStore = useStudentStore()
+//   const authStore = useAuthStore()
+//   if (teacherStore.teacher.length === 0 && authStore.userRole?.includes("ROLE_ADMIN")) {
+//     await teacherStore.fetchTeachersFromDB()
+//   }
+//   if (studentStore.student.length === 0 && authStore.userRole?.includes("ROLE_ADMIN")) {
+//     await studentStore.fetchStudentsFromDB()
+//     // console.log(studentStore.students)
+//   }
+//   if (studentStore.student.length === 0 && authStore.userRole?.includes("ROLE_TEACHER")
+//   && authStore.id != null) {
+//     await studentStore.fetchStudentsByTeacher(authStore.id)
+//     // console.log(studentStore.students)
+//   }
+//   if (studentStore.student.length === 0 && authStore.userRole?.includes("ROLE_STUDENT")
+//   && authStore.id != null) {
+//     await studentStore.fetchStudentById(authStore.id)
+//     // console.log(studentStore.students)
+//   }
+
+//   })
+
+// router.afterEach(() => {
+//     NProgress.done()
+// })
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

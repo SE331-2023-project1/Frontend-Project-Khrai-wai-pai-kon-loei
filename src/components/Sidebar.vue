@@ -26,7 +26,7 @@
 				<span class="material-symbols-outlined">school</span>
 				<span class="text">Teacher</span>
 			</RouterLink>
-			<RouterLink :to="{name: 'form'}" class="button">
+			<RouterLink :to="{name: 'form'}" class="button" v-if="userRole == 'ROLE_ADMIN'">
 				<span class="material-symbols-outlined">note</span>
 				<span class="text">Form</span>
 			</RouterLink>
@@ -49,11 +49,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import logoURL from '../assets/logo.png'
-import { RouterLink } from 'vue-router'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
 
 const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
+
+const userRole = ref(localStorage.getItem("user_role"))
+
 
 const ToggleMenu = () => {
     is_expanded.value = !is_expanded.value
