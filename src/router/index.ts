@@ -22,6 +22,7 @@ import Register from "../views/Register.vue";
 import Announcement from "../views/announcement/AnnouncementView.vue"
 import CreateAnnouncementView from '../views/announcement/CreateAnnouncementView.vue'
 import { useAuthStore } from '@/stores/auth.ts'
+import TeacherRegister from "../views/TeacherForm.vue"
 
 // router.beforeEach(async () => {
 //   NProgress.start()
@@ -90,6 +91,11 @@ const router = createRouter({
       path: "/Register",
       name: "Register",
       component: Register,
+    },
+    {
+      path: "/register/teacher",
+      name: "TeacherRegister",
+      component: TeacherRegister,
     },
     {
       path: "/Announcement",

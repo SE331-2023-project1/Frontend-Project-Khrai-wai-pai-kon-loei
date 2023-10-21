@@ -52,7 +52,7 @@ function logout() {
 				<span class="material-symbols-outlined">school</span>
 				<span class="text">Teacher</span>
 			</RouterLink>
-			<RouterLink :to="{name: 'form'}" class="button" v-if="authStore.isAdmin()">
+			<RouterLink :to="{name: 'TeacherRegister'}" class="button" v-if="authStore.isAdmin()">
 				<span class="material-symbols-outlined">note</span>
 				<span class="text">Add Teacher</span>
 			</RouterLink>
