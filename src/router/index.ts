@@ -19,9 +19,10 @@ import NotFoundView from '@/views/NotFoundView.vue';
 import NetworkErrorView from '@/views/NetworkErrorView.vue';
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
-import Announcement from "../views/announcement/AnnouncementView.vue"
-import CreateAnnouncementView from '../views/announcement/CreateAnnouncementView.vue'
+import Announcement from "../views/announcement/AnnouncementView.vue";
+import CreateAnnouncementView from '../views/announcement/CreateAnnouncementView.vue';
 import { useAuthStore } from '@/stores/auth.ts'
+import Admin from "../views/Admin.vue";
 
 // router.beforeEach(async () => {
 //   NProgress.start()
@@ -100,6 +101,11 @@ const router = createRouter({
       path: "/Create-Announcement",
       name: "CreateAnnouncement",
       component: CreateAnnouncementView,
+    },
+    {
+      path: "/Admin",
+      name: "Admin",
+      component: Admin,
     },
     {
       path: "/",
