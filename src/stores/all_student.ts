@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import type { Student } from '@/type';
 import { useTeacherAllStore } from './all_teacher';
+import StudentService from '@/services/StudentService';
 export const useStudentAllStore = defineStore('student_all', {
     state: () => ({
         student_all: [] as Student[],
@@ -32,5 +33,12 @@ export const useStudentAllStore = defineStore('student_all', {
                 return null;
             }
         },
+        getStudents: (state: { students: string | any[]; }) => async (limit: number, page: number) => {
+            const response = await StudentService.getStudents(limit,page)
+            state.students = response.data
+            const start = (page - 1) * limit
+            const end = start + limit
+            return state.students.slice(start, end)
+          },
     }
 })

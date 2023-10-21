@@ -1,7 +1,7 @@
 import axios from 'axios'
 import type { AxiosInstance, AxiosResponse } from 'axios'
 import type { Teacher } from '@/type'
-
+import apiClient from './AxiosClient'
 
 const apiClient: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL_STUDENT,

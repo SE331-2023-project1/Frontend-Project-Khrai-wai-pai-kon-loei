@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { type Student, type Teacher } from '@/type';
+import axios from 'axios';
 
 export const useStudentStore = defineStore('student', {
     state: () => ({
@@ -12,7 +13,19 @@ export const useStudentStore = defineStore('student', {
         getAllStudent() {
             return this.student;
         },
-        
+        // fetchdata(){
+        //    axios.get("http://localhost:8080/api/v1/auth/students" , {
+        //     headers:{
+        //         Authorization: Bearer ${token},
+        //     },
+        //     })
+        //     .then((response) => {
+        //         this.data = response.data;
+        //     })
+        //     .catch((error) => {
+        //         console.log(error);
+        //     });
+        // }
     }
 })
 
