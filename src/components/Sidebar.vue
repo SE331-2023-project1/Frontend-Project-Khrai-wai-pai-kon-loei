@@ -7,7 +7,8 @@ import { useAuthStore } from '@/stores/auth'
 
 const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
 
-const userRole = ref(localStorage.getItem("user_role"))
+const userRole = localStorage.getItem("user_role")
+const token = localStorage.getItem("access_token")
 
 const authStore = useAuthStore()
 
@@ -21,6 +22,11 @@ function logout() {
   localStorage.removeItem('user_role')
 //   router.push({ name: 'Login' })
   location.href = "http://localhost:3000/Login";
+}
+if (token && userRole) {
+  authStore.reload(token, JSON.parse(userRole))
+} else {
+  authStore.logout()
 }
 
 </script>
