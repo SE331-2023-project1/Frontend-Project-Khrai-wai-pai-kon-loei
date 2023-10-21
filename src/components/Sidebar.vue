@@ -1,3 +1,28 @@
+<script setup lang="ts">
+import router from '@/router';
+import logoURL from '../assets/logo.png'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
+import { useAuthStore } from '@/stores/auth'
+
+const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
+
+const userRole = ref(localStorage.getItem("user_role"))
+
+const authStore = useAuthStore()
+
+const ToggleMenu = () => {
+    is_expanded.value = !is_expanded.value
+    localStorage.setItem("is_expanded", is_expanded.value.toString())
+}
+
+function logout() {
+  localStorage.removeItem('access_token')
+  localStorage.removeItem('user_role')
+  router.push('login')
+}
+
+</script>
 
 <template>
 	<aside :class="`${is_expanded ? 'is-expanded' : ''}`">
@@ -14,55 +39,45 @@
 
 		<h3>Menu</h3>
 		<div class="menu">
-			<RouterLink :to="{name: 'home' }" class="button">
+			<RouterLink :to="{name: 'home' }" class="button"  >
 				<span class="material-symbols-outlined">home</span>
 				<span class="text">Home</span>
 			</RouterLink>
-			<RouterLink :to="{name: 'students' }" class="button">
+			<RouterLink :to="{name: 'students' }" class="button" v-if="authStore.isAdmin() || authStore.isTeacher()">
 				<span class="material-symbols-outlined">person</span>
 				<span class="text">Student</span>
 			</RouterLink>
-			<RouterLink :to="{name: 'teachers'}" class="button">
+			<RouterLink :to="{name: 'teachers'}" class="button" v-if="authStore.isAdmin()">
 				<span class="material-symbols-outlined">school</span>
 				<span class="text">Teacher</span>
 			</RouterLink>
-			<RouterLink :to="{name: 'form'}" class="button" v-if="userRole == 'ROLE_ADMIN'">
+			<RouterLink :to="{name: 'form'}" class="button" v-if="authStore.isAdmin()">
 				<span class="material-symbols-outlined">note</span>
-				<span class="text">Form</span>
+				<span class="text">Add Teacher</span>
 			</RouterLink>
 
 			<!-- link to login -->
-			<RouterLink :to="{ name: 'Login' }" class="button">
-                <span class="material-symbols-outlined">login</span>
-                <span class="text">Login</span>
-			</RouterLink>
-			<RouterLink :to="{ name: 'Announcement' }" class="button">
+			<RouterLink :to="{ name: 'Announcement' }" class="button" v-if="authStore.isAdmin() || authStore.isTeacher() || authStore.isStudent()">
                 <span class="material-symbols-outlined">Notifications</span>
                 <span class="text">Announcement</span>
 			</RouterLink>
-			<RouterLink :to="{ name: 'CreateAnnouncement' }" class="button">
+			<RouterLink :to="{ name: 'CreateAnnouncement' }" class="button" v-if="authStore.isTeacher()">
                 <span class="material-symbols-outlined">Announcement</span>
                 <span class="text">CreateAnnouncement</span>
 			</RouterLink>
+			<RouterLink :to="{ name: 'Login' }" class="button" v-if="!authStore.isLoggedIn()">
+				<span class="material-symbols-outlined">login</span>
+				<span class="text">Login</span>
+			</RouterLink>
+			<button class="button" @click ="logout" v-if="authStore.isLoggedIn()">
+				<span class="material-symbols-outlined">logout</span>
+				<span class="text">Log out</span>
+			</button>
 		</div>
 	</aside>
 </template>
 
-<script setup lang="ts">
-import logoURL from '../assets/logo.png'
-import { computed, ref, onMounted, onUnmounted } from 'vue'
-import { RouterLink, RouterView, useRoute } from 'vue-router'
 
-const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
-
-const userRole = ref(localStorage.getItem("user_role"))
-
-
-const ToggleMenu = () => {
-    is_expanded.value = !is_expanded.value
-    localStorage.setItem("is_expanded", is_expanded.value.toString())
-}
-</script>
 
 <style lang="scss" scoped>
 // .material-symbols-outlined {

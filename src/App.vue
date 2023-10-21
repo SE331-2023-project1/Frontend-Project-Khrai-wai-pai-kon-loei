@@ -43,14 +43,9 @@ const teacherStoreAll = useTeacherAllStore();
 
 <template>
   <header>
-    
-    <!-- test keep access token
-      <button @click.prevent="sendPost">submit</button> -->
-
     <div id="flashMessage" v-if="message">
-      
       <div
-        role= "alert"
+        role="alert"
         class="rounded-xl border border-gray-100 bg-white p-4 shadow-xl"
       >
         <div class="flex items-start gap-4">
@@ -72,11 +67,11 @@ const teacherStoreAll = useTeacherAllStore();
           </span>
 
           <div class="flex-1">
-            <strong class="block font-medium text-gray-900"> Changes saved </strong>
+            <strong class="block font-medium text-gray-900">
+              Login Success
+            </strong>
 
-            <p class="mt-1 text-sm text-gray-700">
-              Your changes have been saved.
-            </p>
+            <p class="mt-1 text-sm text-gray-700">Your are in webisite.</p>
           </div>
 
           <button class="text-gray-500 transition hover:text-gray-600">
@@ -100,11 +95,11 @@ const teacherStoreAll = useTeacherAllStore();
         </div>
       </div>
     </div>
-    <div class="app">
-      <Sidebar />
-      <RouterView />
-    </div>
   </header>
+  <div class="app">
+    <Sidebar />
+    <RouterView />
+  </div>
 </template>
 <!-- 
 <template>

@@ -102,25 +102,7 @@ const addStudent = () => {
     href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Noto+Sans+SC:wght@700&family=Oxygen&family=Plus+Jakarta+Sans:wght@300&family=Racing+Sans+One&family=Raleway:wght@100;200;700&family=Roboto+Slab:wght@500;700&family=Rowdies:wght@300&family=Rubik:wght@500&display=swap"
     rel="stylesheet">
   <div class="form">
-    <div>
-      <select class="from-selection" v-model="selectedForm" id="formSelect">
-        <option value="student">Student Form</option>
-        <option value="teacher">Teacher Form</option>
-      </select>
-    </div>
-      <div v-if="selectedForm === 'student'" class="form-section">
-        <h1 class="font-bold text-3xl mb-4">Add new student form</h1>
-        <form @submit.prevent="addStudent">
-          <input v-model="newStudentName" placeholder="Student Name" />
-          <input v-model="newStudentSurname" placeholder="Student Surname" />
-          <input v-model="newStudentID" placeholder="Student ID" />
-          <input v-model="newStudentImage" placeholder="Student Image URL" />
-          <input v-model="newStudentTeacher" type="string" placeholder="Teacher ID" />
-          <input v-model="newStudentCourselist" placeholder="Student course list" />
-          <button class="button-19" id="button-19-student" type="submit" :disabled="!isFormValid">Add Student</button>
-        </form>
-      </div>
-      <div v-if="selectedForm === 'teacher'" class="form-section">
+      <div class="form-section">
         <div class="from">
           <h1 class="font-bold text-3xl mb-4">Add new teacher form</h1>
       <form @submit.prevent="addTeacher">
