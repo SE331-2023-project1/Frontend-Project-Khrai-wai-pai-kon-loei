@@ -19,7 +19,8 @@ const ToggleMenu = () => {
 function logout() {
   localStorage.removeItem('access_token')
   localStorage.removeItem('user_role')
-  router.push('login')
+//   router.push({ name: 'Login' })
+  location.href = "http://localhost:3000/Login";
 }
 
 </script>
@@ -69,10 +70,10 @@ function logout() {
 				<span class="material-symbols-outlined">login</span>
 				<span class="text">Login</span>
 			</RouterLink>
-			<button class="button" @click ="logout" v-if="authStore.isLoggedIn()">
+			<RouterLink :to="{ name: 'Login' }" class="button" @click ="logout" v-if="authStore.isLoggedIn()">
 				<span class="material-symbols-outlined">logout</span>
 				<span class="text">Log out</span>
-			</button>
+			</RouterLink>
 		</div>
 	</aside>
 </template>
