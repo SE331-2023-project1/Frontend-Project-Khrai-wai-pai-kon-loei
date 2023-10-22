@@ -20,10 +20,6 @@
               <td>
                 <img class="w-24 h-24 object-cover rounded-full shadow-lg" :src="advisee.picture" alt="Advisee Picture">
               </td>
-              <!-- student id -->
-              <td>
-                <div class="text-lg">{{ advisee.id }}</div>
-              </td>
               <!-- Name -->
               <td>
                 <div class="text-lg">{{ advisee.name }}</div>
@@ -50,12 +46,10 @@
           {
             name: "Name Surname",
             picture: "../assets/pic1.jpg",
-            id: "642115000",
           },
           {
             name: "Name Surname",
             picture: "../assets/pic2.jpg",
-            id: "642115001",
           },
           // Add more advisees with their data
         ],
