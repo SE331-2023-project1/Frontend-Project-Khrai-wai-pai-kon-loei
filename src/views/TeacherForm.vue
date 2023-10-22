@@ -1,8 +1,5 @@
 <template>
   <div class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <img class="mx-auto h-60 w-60" src='../assets/logo.png' alt="logo" />
-    </div>
 
     <link
     href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Noto+Sans+SC:wght@700&family=Oxygen&family=Plus+Jakarta+Sans:wght@300&family=Racing+Sans+One&family=Raleway:wght@100;200;700&family=Roboto+Slab:wght@500;700&family=Rowdies:wght@300&family=Rubik:wght@500&display=swap"
@@ -10,7 +7,7 @@
   <div class="form">
       <div class="form-section">
         <div class="from">
-          <h1 class="font-bold text-3xl mb-4">Add new teacher form</h1>
+          <h1 class="font-bold text-3xl mb-4 text-center">Add New Teacher Form</h1>
       <form @submit.prevent="signup">
         <!-- firstname -->
           <div class="mt-2">
