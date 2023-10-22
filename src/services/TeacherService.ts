@@ -13,10 +13,13 @@ import apiClient from './AxiosClient'
 // })
 
 export default {
-  getTeachers(): Promise<AxiosResponse<Teacher[]>> {
-    // perPage is limit
-    // page is number of pages
-    return apiClient.get<Teacher[]>('teachers')
+  // getTeachers(): Promise<AxiosResponse<Teacher[]>> {
+  //   // perPage is limit
+  //   // page is number of pages
+  //   return apiClient.get<Teacher[]>('teachers')
+  // },
+  getTeachers(perPage: number, page: number): Promise<AxiosResponse<Teacher[]>> {
+    return apiClient.get<Teacher[]>('/teachers?_limit=' + perPage + '&_page=' + page)
   },
   getTeacherById(teacherID : string) : Promise<AxiosResponse<Teacher>>{
     return apiClient.get<Teacher>('teachers/'+ '?teacherID='+teacherID.toString())

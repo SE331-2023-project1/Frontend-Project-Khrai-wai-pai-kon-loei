@@ -17,11 +17,22 @@ export interface Student {
 }
 
 export interface Teacher {
-  name: string,
-  surname: string,
-  teacherID: string,
-  profileimage: string,
-  courselist: string[]
+    id: number,
+    images: [],
+    department: string,
+    students: {
+          id: number,
+          images: [],
+          department: string
+            
+      },
+    user: {
+        id: number,
+        parentId: number,
+        firstname: string,
+        lastname: string
+        }
+    
 }
 
 export interface Contributor {
