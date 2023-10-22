@@ -18,6 +18,8 @@
                 Name surname
               </h1>
             </div>
+
+            <!-- dropdown -->
             <span
               class="material-symbols-outlined cursor-pointer"
               @click="toggleDropdown"
