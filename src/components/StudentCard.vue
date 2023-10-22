@@ -17,7 +17,7 @@
             <span>({{ student?.studentid }})</span>
           </h2>
           <p class="card-email">{{ student?.courselist.join(', ') }}</p>
-          <p>{{ student?.teacherID }}</p>
+          <p>Advisor : {{ student?.teacherID }}</p>
         </div>
       </div>
     </RouterLink>

@@ -39,6 +39,20 @@ export const useStudentAllStore = defineStore('student_all', {
             const start = (page - 1) * limit
             const end = start + limit
             return state.students.slice(start, end)
+        },
+        getStudentById: (state: { students: any[]; }) => async (id: string) => {
+            const students = await StudentService.getAllStudents()
+            state.students = students.data
+            const response = state.students.find((student: { id: string; }) => student.id == id)
+            return new Promise<Student | null>((resolve) => {
+              resolve(response || null)
+            })
           },
+          getStudentsLength: (state: { students: string | any[]; }) => () => {
+            return state.students.length
+          },
+          getAllStudents: (state: { students: any; }) => () => {
+            return state.students
+          }
     }
 })
