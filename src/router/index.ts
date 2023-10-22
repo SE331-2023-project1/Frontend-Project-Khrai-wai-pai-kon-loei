@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import StudentlayoutView from '@/views/student/StudentLayoutView.vue'
-import StudentDetailView from '@/views/student/StudentDetailView.vue'
+import StudentDetail from '@/views/student/StudentDetailView.vue'
 import StudentService from '@/services/StudentService'
 import { storeToRefs } from 'pinia'
 import { useStudentStore } from '@/stores/student';
@@ -124,7 +124,11 @@ const router = createRouter({
       name: "home",
       component: Continutors,
     },
-
+    {
+      path: '/student/:studentid',
+      name: 'student-detail',
+      component: StudentDetail,
+    },
     // {
     //   path: '/student/:studentid',
     //   name: 'student-layout',

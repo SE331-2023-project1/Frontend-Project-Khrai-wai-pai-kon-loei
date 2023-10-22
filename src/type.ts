@@ -1,11 +1,18 @@
 export interface Student {
-  name: string,
-  surname: string,
-  studentid: string,
-  profileimage: string,
-  courselist: string[],
-  teacherID: string,
-  comment: []
+  id: number,
+  images: [],
+  department: string,
+  teacher: {
+      id: number,
+      images: [],
+      department: string
+  },
+  user: {
+      id: number,
+      parentId: number,
+      firstname: string,
+      lastname: string
+  }
 }
 
 export interface Teacher {
