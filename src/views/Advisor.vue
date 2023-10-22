@@ -18,24 +18,6 @@
                 Name surname
               </h1>
             </div>
-
-            <!-- dropdown -->
-            <span
-              class="material-symbols-outlined cursor-pointer"
-              @click="toggleDropdown"
-            >
-              {{ isOpen ? "expand_less" : "expand_more" }}
-            </span>
-            <div v-if="isOpen" id="dropdownUsers" class="z-10 bg-white rounded-lg shadow w-60 dark:bg-gray-700">
-             <ul class="max-h-48 overflow-y-auto py-2 text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUsersButton">
-            <li>
-            <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-            <img class="w-6 h-6 mr-2 rounded-full" src="../assets/logo.png" alt="User Image">
-                Jese Leos
-            </a>
-            </li>
-            </ul>
-           </div>
           </div>
         </div>
       </div>
