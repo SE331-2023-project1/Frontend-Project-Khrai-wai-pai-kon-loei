@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import AdvisorRow from './AdvisorRow.vue';
+// import AdvisorRole from './AdvisorRole.vue';
 
 export default {
   data() {
@@ -54,7 +54,7 @@ export default {
     };
   },
   components: {
-    AdvisorRow,
+    // AdvisorRole,
   },
 };
 </script>
