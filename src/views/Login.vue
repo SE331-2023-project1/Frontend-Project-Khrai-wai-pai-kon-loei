@@ -4,7 +4,6 @@
     
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <div class="animate-flashMessage mb-4" v-if="message">
-        <h4>{{ message }}</h4>
       </div>
       <img class="mx-auto h-60 w-60" src='../assets/logo.png' alt="logo" />
       <h2 class="mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Log In</h2>
