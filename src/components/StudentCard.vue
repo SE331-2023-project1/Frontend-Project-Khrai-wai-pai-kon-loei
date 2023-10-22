@@ -16,7 +16,8 @@
             {{ student?.name }} {{ student?.surname }}
             <span>({{ student?.studentid }})</span>
           </h2>
-          <p class="card-email">{{ student?.courselist.join(', ') }}</p>
+
+          <!-- <p class="card-email">{{ student?.courselist.join(", ") }}</p> -->
           <p>Advisor : {{ student?.teacherID }}</p>
         </div>
       </div>
@@ -26,7 +27,7 @@
 
 <script setup lang="ts">
 import { type Student } from "@/type";
-import type { PropType } from "vue";
+import { type PropType } from "vue";
 
 const props = defineProps({
   student: {
