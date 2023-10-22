@@ -1,4 +1,5 @@
 export interface Student {
+[x: string]: any
   id: number,
   images: [],
   department: string,

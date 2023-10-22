@@ -3,14 +3,14 @@ import type { AxiosInstance, AxiosResponse } from 'axios'
 import type { Teacher } from '@/type'
 import apiClient from './AxiosClient'
 
-const apiClient: AxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL_STUDENT,
-  withCredentials: false,
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json'
-  }
-})
+// const apiClient: AxiosInstance = axios.create({
+//   baseURL: import.meta.env.VITE_BASE_URL_STUDENT,
+//   withCredentials: false,
+//   headers: {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json'
+//   }
+// })
 
 export default {
   getTeachers(): Promise<AxiosResponse<Teacher[]>> {
