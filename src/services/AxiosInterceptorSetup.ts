@@ -1,4 +1,4 @@
-import apiClient from '@/services/AxiosClient.ts'
+import apiClient from '@/services/AxiosClient'
 
 apiClient.interceptors.request.use(
   (request) => {
