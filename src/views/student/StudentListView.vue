@@ -139,7 +139,7 @@ onMounted(async () => {
     const studentsData = response.data.map((Student) => ({
       name: Student.user.firstname,
       surname: Student.user.lastname,
-      studentid: Student.user.toString(),
+      studentid: Student.id,
       profileimage: "", // You can fill this in with the actual image URL
       courselist: [], // You can fill this in with the course data
       teacherID: Student.teacher ? Student.teacher.id.toString() : 'N/A',
