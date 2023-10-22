@@ -34,5 +34,7 @@ export default {
   getStudents(perPage: number, page: number): Promise<AxiosResponse<Student[]>> {
     return apiClient.get<Student[]>('/students?_limit=' + perPage + '&_page=' + page)
   },
-  
+  getAllStudents(): Promise<AxiosResponse<Student[]>> {
+    return apiClient.get<Student[]>('/students')
+  },
 }

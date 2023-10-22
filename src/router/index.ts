@@ -25,6 +25,7 @@ import { useAuthStore } from '@/stores/auth.ts'
 import TeacherRegister from "../views/TeacherForm.vue"
 import Admin from "../views/Admin.vue";
 import Advisor from "../views/Advisor.vue";
+import ProfileView from '../views/profile/ProfileView.vue'
 
 // router.beforeEach(async () => {
 //   NProgress.start()
@@ -123,6 +124,11 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: Continutors,
+    },
+    {
+      path: '/profile',
+      name: 'profile-page',
+      component: ProfileView
     },
     {
       path: '/student/:studentid',
