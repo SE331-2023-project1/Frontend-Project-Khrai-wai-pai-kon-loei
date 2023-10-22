@@ -62,6 +62,10 @@ if (token && userRole) {
 				<span class="material-symbols-outlined">note</span>
 				<span class="text">Add Teacher</span>
 			</RouterLink>
+			<RouterLink :to="{name: 'Advisor'}" class="button" v-if="authStore.isAdmin()">
+				<span class="material-symbols-outlined">groups_2</span>
+				<span class="text">Advisor</span>
+			</RouterLink>
 			<RouterLink :to="{name: 'Admin'}" class="button" v-if="authStore.isAdmin()">
 				<span class="material-symbols-outlined">browse_activity</span>
 				<span class="text">Admin</span>

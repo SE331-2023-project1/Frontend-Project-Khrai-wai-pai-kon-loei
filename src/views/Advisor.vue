@@ -2,7 +2,7 @@
     <main class="container">
       <span
         class="block text-center rounded-t-lg p-3 font-semibold text-lg bg-[url('https://tinyurl.com/4zf8nrhf')]">\
-        All Advisor</span>
+        All Advisee</span>
       <div class="bg-white p-6 rounded-b-lg shadow-md space-y-4">
         <div class="flex items-center space-x-8">
           <!-- image -->
