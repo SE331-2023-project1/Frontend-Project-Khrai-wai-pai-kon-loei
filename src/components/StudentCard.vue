@@ -17,7 +17,7 @@
             {{ student?.name }} {{ student?.surname }}
           </h2>
           <h2>
-            <span>(user id : {{ student?.studentid }})</span>
+            <span>(Student id : {{ student?.studentid }})</span>
           </h2>
 
           <!-- <p class="card-email">{{ student?.courselist.join(", ") }}</p> -->

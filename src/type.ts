@@ -53,3 +53,16 @@ export interface AnnouncementItem {
   content: string;
   images: string[];
 }
+
+export interface User {
+  id: Integer;
+  firstname: string;
+  lastname: string;
+}
+
+type SearchResults = {
+  id: number;
+  firstname: string;
+  lastname: string;
+  // Add other properties here if needed
+};

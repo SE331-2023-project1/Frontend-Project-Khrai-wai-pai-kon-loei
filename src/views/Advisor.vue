@@ -1,6 +1,6 @@
 <template>
   <main class="container">
-    <span class="block text-center rounded-t-lg p-3 font-semibold text-lg bg-[url('https://tinyurl.com/4zf8nrhf')]">
+    <span class="block text-center rounded-t-lg p-3 font-semibold text-lg" style="background-color: #e8d3f4;">
       My Advisee Student
     </span>
 
