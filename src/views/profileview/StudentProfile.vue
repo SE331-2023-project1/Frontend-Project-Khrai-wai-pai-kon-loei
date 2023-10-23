@@ -38,6 +38,33 @@
               </div>
             </div>
           </div>
+
+          <!-- Comments section -->
+          <div class="border-t border-gray-300 pt-4">
+            <h2 class="text-lg font-semibold">All Comments</h2>
+            <div v-for="(comment, index) in comments" :key="index">
+              <p>{{ comment }}</p>
+            </div>
+          </div>
+
+          <!-- Add Comment section -->
+          <div class="border-t border-gray-300 pt-4">
+            <h2 class="text-lg font-semibold">Add Comment</h2>
+            <div class="comment-box mt-4">
+              <textarea
+                v-model="newComment"
+                placeholder="Write a comment"
+                class="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-500"
+              ></textarea>
+              <button
+                @click="submitComment"
+                class="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition duration-300 ease-in-out"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+          
         </div>
       </div>
     </main>
