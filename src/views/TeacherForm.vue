@@ -8,31 +8,58 @@
       <div class="form-section">
         <div class="from">
           <h1 class="font-bold text-3xl mb-4 text-center">Add New Teacher Form</h1>
-      <form @submit.prevent="signup">
+          <form class="space-y-6" @submit.prevent="onSubmit">
         <!-- firstname -->
-          <div class="mt-2">
-            <input id="firstname" v-model="formData.firstname" type="text" autocomplete="username" required placeholder="Teacher Firstname" class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-          </div>
+        <div class="mt-2">
+          <label for="firstname" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
+
+          <InputText type="text" v-model="firstname" :error="errors['firstname']"></InputText>
+        </div>
            <!-- lastname -->
-          <div class="mt-2">
-            <input id="lastname" v-model="formData.lastname" type="text" autocomplete="username" required placeholder="Teacher Lastname" class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-          </div>
+           <div class="mt-2">
+          <label for="lastname" class="block text-sm font-medium leading-6 text-gray-900"
+            >Last Name</label
+          >
+          <InputText type="text" v-model="lastname" :error="errors['lastname']"></InputText>
+        </div>
            <!-- username -->
-          <div class="mt-2">
-            <input id="username" v-model="formData.username" type="text" autocomplete="username" required placeholder="Teacher Username" class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-          </div>
+           <div class="mt-2">
+          <label for="username" class="block text-sm font-medium leading-6 text-gray-900"
+            >User Name</label
+          >
+          <InputText type="text" v-model="username" :error="errors['username']"></InputText>
+        </div>
            <!-- email -->
-          <div class="mt-2">
-            <input id="email" v-model="formData.email" type="email" autocomplete="email" required placeholder="Teacher Email" class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-          </div>
+           <div class="mt-2">
+          <label for="email" class="block text-sm font-medium leading-6 text-gray-900"
+            >Email</label
+          >
+          <InputText type="text" v-model="email" :error="errors['email']"></InputText>
+        </div>
            <!-- password -->
-          <div class="mt-2">
-            <input id="password" v-model="formData.password" type="password" autocomplete="new-password" required placeholder="Teacher Password" class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+           <div class="mt-02">
+          <div class="flex items-center justify-start">
+            <label for="password" class="block text-sm font-medium leading-6 text-gray-900"
+              >Password</label
+            >
           </div>
+
+          <div class="mt-2">
+            <InputText v-model="password" type="password" :error="errors['password']"></InputText>
+          </div>
+        </div>
            <!-- repeat -->
-          <div class="mt-2">
-            <input id="passwordRepeat" v-model="formData.passwordRepeat" type="password" autocomplete="new-password" required placeholder="Repeat Password" class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+           <div class="mt-02">
+          <div class="flex items-center justify-start">
+            <label for="passwordrepeat" class="block text-sm font-medium leading-6 text-gray-900"
+              >Repeat Password</label
+            >
           </div>
+
+          <div class="mt-2">
+            <InputText v-model="passwordrepeat" type="password" :error="errors['passwordrepeat']"></InputText>
+          </div>
+        </div>
         <button class="button-19 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" id="button-19-teacher" type="submit">Add Teacher</button>
       </form>
       </div>
@@ -41,64 +68,88 @@
 </div>
 </template>
 
-<script>
-import axios from 'axios'; // Make sure to import Axios
+<script setup lang="ts">
+import InputText from '@/components/InputText.vue'
+import * as yup from 'yup'
+import { useField, useForm } from 'vee-validate'
+import { useAuthStore } from '@/stores/auth'
+import { useRouter, RouterLink } from 'vue-router'
+import { useMessageStore } from '@/stores/message'
+import { storeToRefs } from 'pinia'
 
-export default {
-  data() {
-    return {
-      formData: {
-        firstname: '',
-        lastname: '',
-        username: '',
-        email: '',
-        password: '',
-        passwordRepeat: '',
-      },
-    };
-  },
-  methods: {
-    sendPost() {
-      // Create a payload object from formData
-      const postData = {
-        firstname: this.formData.firstname,
-        lastname: this.formData.lastname,
-        email: this.formData.email,
-        username: this.formData.username,
-        password: this.formData.password,
-      };
+const authStore = useAuthStore()
+const router = useRouter()
+const messageStore = useMessageStore()
 
-      axios.post("http://localhost:8080/api/v1/auth/register/teacher", postData)
-        .then(res => {
-          // Handle the API response, e.g., store access token in local storage
-          localStorage.setItem('access_token', res.data.access_token);
-        })
-        .catch(error => {
-          // Handle API errors here
-          console.error('Error:', error);
-        });
-    },
-    signup() {
-  if (!this.formData.firstname || !this.formData.lastname || !this.formData.username || !this.formData.email || !this.formData.password || !this.formData.passwordRepeat) {
-    alert('Please fill in all required fields.');
-  } else if (this.formData.password !== this.formData.passwordRepeat) {
-    alert('Passwords do not match. Please check and try again.');
-  } else {
-    this.sendPost(); // Call the sendPost function to send registration data to the API
-    alert('Teacher Registration successful..');
+const { message } = storeToRefs(messageStore)
 
-    // Clear the input fields by resetting the formData object
-    this.formData.firstname = '';
-    this.formData.lastname = '';
-    this.formData.username = '';
-    this.formData.email = '';
-    this.formData.password = '';
-    this.formData.passwordRepeat = '';
+const validationSchema = yup.object({
+  username: yup.string().required('The username is required'),
+  firstname: yup.string().required('The firstName is required'),
+  lastname: yup.string().required('The lastName is required'),
+  email: yup.string().email().required('The email is required'),
+  password: yup.string().required('The password is required'),
+  passwordrepeat: yup.string()
+        .oneOf([yup.ref('password')], 'Passwords do not match')
+        .required('Confirm Password is required'),
+})
+
+const { errors, handleSubmit } = useForm({
+  validationSchema,
+
+  initialValues: {
+    username: '',
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    passwordrepeat: '',
   }
-},
-  },
-};
+})
 
+const { value: username } = useField<string>('username')
+
+const { value: firstname } = useField<string>('firstname')
+
+const { value: lastname } = useField<string>('lastname')
+
+const { value: email } = useField<string>('email')
+
+const { value: password } = useField<string>('password')
+
+const { value: passwordrepeat } = useField<string>('passwordrepeat')
+
+const onSubmit = handleSubmit((values) => {
+  authStore
+    .teacherRegister(values.username, values.firstname, values.lastname, values.email, values.password)
+    .then(() => {
+      router.push({ name: 'TeacherRegister' })
+      alert('Teacher Registration successful..');
+      location.reload()
+      setTimeout(() => {
+        messageStore.resetMessage(),
+        messageStore.resetSubmessage(),
+        messageStore.resetSvgPath()
+      }, 5000)
+    })
+    .catch(() => {
+      messageStore.updateMessage('Username is already exists')
+      messageStore.updateSubmessage('Please try another username')
+      const svgPath = `
+        <svg fill="#B9261C" class="h-10 w-10" viewBox="0 0 200 200" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg">
+          <title />
+          <path d="M100,15a85,85,0,1,0,85,85A84.93,84.93,0,0,0,100,15Zm0,150a65,65,0,1,1,65-65A64.87,64.87,0,0,1,100,165Z" />
+          <path d="M128.5,74a9.67,9.67,0,0,0-14,0L100,88.5l-14-14a9.9,9.9,0,0,0-14,14l14,14-14,14a9.9,9.9,0,0,0,14,14l14-14,14,14a9.9,9.9,0,0,0,14-14l-14-14,14-14A10.77,10.77,0,0,0,128.5,74Z" />
+        </svg>
+    `
+    messageStore.updateSvgPath(svgPath)
+      setTimeout(() => {
+        messageStore.resetMessage(),
+        messageStore.resetSubmessage(),
+        messageStore.resetSvgPath()
+      }, 3000)
+    })
+})
 </script>
 <style scoped>
     .form {
