@@ -49,8 +49,6 @@ export const useAuthStore = defineStore('auth', {
         email: email,
         password: password,
       })
-      this.token = response.data.access_token
-      this.userRole = response.data.user_role
       localStorage.setItem('access_token', this.token as string)
       localStorage.setItem('user_role', JSON.stringify(this.userRole))
       return response
