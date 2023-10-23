@@ -1,50 +1,43 @@
-<script setup lang="ts">
-const truncate = (text: string) => {
-  if (text.length > 150) {
-    return text.substring(0, 150) + "...";
-  }
-  return text;
-};
-</script>
-
 <template>
-  <!-- <RouterLink :to="{ name: 'student-detail', params: { id: student?.studentId } }"> -->
-  <div
-    class="w-[60%] bg-white border border-gray-200 rounded-lg shadow hover:shadow-md"
-  >
-    <div class="flex flex-col p-8">
+  <div class="w-[80%] bg-white border border-gray-200 rounded-lg shadow hover:shadow-md p-8" :style="{ margin: '8px' }">
+    <div class="flex flex-col">
       <div class="flex flex-row text-sm text-gray-500">
-        <img
-          src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg"
-          alt=""
-          class="h-12 rounded-full mb-4 mr-4"
-        />
-        <div class="">
-          <div class="">Frog</div>
-          <div class="">— 10/15/2023 1:10 AM</div>
-        </div>
-      </div>
+      <img
+        :src="advisor.image"
+        alt=""
+        class="w-20 h-20 object-cover rounded-full shadow-lg"
+      />
       <div>
-        <span class="material-symbols-outlined"><span>Score Midterm.pdf</span> </span>
-        
+        <div class="px-4 font-semibold text-xl">{{ advisor.name }} {{ advisor.surname }}</div>
       </div>
-      <div>
-        <h5 class="mb-1 text-xl font-medium text-gray-900">Some Title</h5>
-        <p class="text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores vitae
-          eaque voluptate eius perferendis pariatur unde placeat totam incidunt
-          quaerat!
-        </p>
-      </div>
-
-      <div class="flex mt-4 space-x-3 md:mt-6">
-        <a
-          href="#"
-          class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-[#42b883] rounded-lg hover:bg-[#27a26f] focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg"
-          >Read more</a
-        >
       </div>
     </div>
-  </div>
-  <!-- </RouterLink> -->
+    <div>
+      <span class="material-symbols-outlined"><span>{{ announce.document }}</span></span>
+    </div>
+    <div>
+      <h5 class="mb-1 text-xl font-medium text-gray-900">{{ announce.title }}</h5>
+      <p class="text-gray-600">{{ announce.description }}</p>
+    </div>
+
+    <div> {{ announce.date }}</div>
+
+    <div class="flex mt-4 space-x-3 md:mt-6">
+      <a class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-[#42b883] rounded-lg hover:bg-[#27a26f] focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg"
+        >Read more</a
+      >
+    </div>
+ </div>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+
+const props = defineProps({
+  advisor: Object,
+  announce: Object,
+});
+
+const advisor = ref(props.advisor);
+const announce = ref(props.announce);
+</script>
