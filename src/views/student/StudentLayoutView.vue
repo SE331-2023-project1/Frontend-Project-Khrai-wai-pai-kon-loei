@@ -60,6 +60,7 @@ function submitComment() {
 
 <template>
   <main class="container">
+    {{student}}
     <!-- Student information -->
     <div v-if="student">
       <span
@@ -74,23 +75,23 @@ function submitComment() {
               <div class="grid grid-cols-1 gap-1 pt-5 pb-1.5 sm:grid-cols-3 sm:gap-4">
                 <dt class="text-xl font-semibold">Name</dt>
                 <h1 class="text-lg">
-                  {{ student.name }} {{ student.surname }}
+                  {{ student?.name }} {{ student?.surname }}
                 </h1>
               </div>
 
               <div class="grid grid-cols-1 gap-1 py-1.5  sm:grid-cols-3 sm:gap-4">
                 <dt class="text-xl font-semibold">Student ID</dt>
-                <h1 class="text-lg">{{ student.studentid }}</h1>
+                <h1 class="text-lg">{{ student?.studentid }}</h1>
               </div>
 
-              <div class="grid grid-cols-1 gap-1 py-1 sm:grid-cols-3 sm:gap-4">
+              <!-- <div class="grid grid-cols-1 gap-1 py-1 sm:grid-cols-3 sm:gap-4">
                 <dt class="text-xl font-semibold">Course</dt>
                 <h1 class="text-lg">{{ student.courselist }}</h1>
-              </div>
+              </div> -->
 
               <div class="grid grid-cols-1 gap-1 py-1.5 sm:grid-cols-3 sm:gap-4">
                 <dt class="text-xl font-semibold">Teacher</dt>
-                <h1 class="text-lg">{{ student.teacherID }}</h1>
+                <h1 class="text-lg">{{ student?.teacherID }}</h1>
               </div>
             </div>
           </div>
@@ -110,39 +111,6 @@ function submitComment() {
               </div>
             </div>
           </div>
-
-          <!-- Comments section
-        <div class="border-t border-gray-300 pt-4">
-          <h2 class="text-lg font-semibold">Comment</h2>
-          <p class="mb-2">{{ student.comment }}</p>
-
-          <div class="mt-4">
-            <div
-              v-for="(comment, index) in comments"
-              :key="index"
-              class="bg-gray-100 p-2 rounded-lg mb-2 flex justify-between items-center"
-            >
-              <span>{{ comment }}</span>
-              <button @click="deleteComment(index)" class="text-red-500">
-                Delete
-              </button>
-            </div>
-          </div>
-
-          <div class="comment-box mt-4">
-            <textarea
-              v-model="newComment"
-              placeholder="Write a comment"
-              class="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-500"
-            ></textarea>
-            <button
-              @click="submitComment"
-              class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300 ease-in-out"
-            >
-              Submit
-            </button>
-          </div>
-        </div> -->
 
           <!-- Comments section -->
           <div class="border-t border-gray-300 pt-4">
