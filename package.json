@@ -18,6 +18,8 @@
     "vee-validate": "^4.11.8",
     "vue": "^3.3.4",
     "vue-commentbox": "^0.0.2",
+    "vue-media": "^1.1.1",
+    "vue-media-upload": "^2.1.2",
     "vue-router": "^4.2.2",
     "yup": "^1.3.2"
   },

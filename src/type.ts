@@ -45,3 +45,9 @@ export interface Contributor {
   profileimage: string,
 }
 
+export interface AnnouncementItem {
+  id: number
+  title: string
+  content: string
+  images: string[]
+}

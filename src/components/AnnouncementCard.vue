@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const truncate = (text: string) => {
-  if (text.length > 8) {
-    return text.substring(0, 8) + "...";
+  if (text.length > 150) {
+    return text.substring(0, 150) + "...";
   }
   return text;
 };
