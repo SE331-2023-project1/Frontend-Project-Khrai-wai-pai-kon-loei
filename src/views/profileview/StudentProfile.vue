@@ -1,6 +1,6 @@
 <template>
     <main class="container">
-      <span class="block text-center rounded-t-lg p-3 font-semibold text-lg bg-[url('https://tinyurl.com/4zf8nrhf')]">
+      <span class="block text-center rounded-t-lg p-3 font-semibold text-lg" style="background-color: #e8d3f4;">
         Student Profile
       </span>
 
@@ -25,19 +25,48 @@
           </div>
   
           <!-- Teacher information -->
-          <h1 class="text-xl font-semibold">Student's Advisor</h1>
-          <div class="bg-white p-3 rounded-lg shadow-md space-y-4" v-for="(profile, index) in profiles" :key="index">
+          <h1 class="text-xl font-semibold" style="color: #c78ee8;">Student's Advisor</h1>
+          <div class="p-5 rounded-lg shadow-md space-y-4" 
+           :style="{ backgroundImage: 'url(https://tinyurl.com/bdd2b8t5)', backgroundSize: 'cover' }"
+           v-for="(profile, index) in profiles" :key="index">
             <div class="flex items-center space-x-8 ">
               <img class="w-24 h-24 object-cover rounded-full shadow-lg" :src="profile.image" />
               <div>
-                <h1 class="text-xl font-bold"> Name :
+                <h1 class="text-xl font-bold py-1"> Name :
                     {{ profile.name }} {{ profile.surname }}
                 </h1>
-                <h1 class="text-lg py-2">Academic Position : {{ profile.academicPosition }}</h1>
-                <h1 class="text-lg py-2">Department : {{ profile.department }}</h1>
+                <h1 class="text-lg py-1">Academic Position : {{ profile.academicPosition }}</h1>
+                <h1 class="text-lg py-1">Department : {{ profile.department }}</h1>
               </div>
             </div>
           </div>
+
+          <!-- Comments section -->
+          <div class="border-t border-gray-300 pt-4">
+            <h2 class="text-lg font-semibold">All Comments</h2>
+            <div v-for="(comment, index) in comments" :key="index">
+              <p>{{ comment }}</p>
+            </div>
+          </div>
+
+          <!-- Add Comment section -->
+          <div class="border-t border-gray-300 pt-4">
+            <h2 class="text-lg font-semibold">Add Comment</h2>
+            <div class="comment-box mt-4">
+              <textarea
+                v-model="newComment"
+                placeholder="Write a comment"
+                class="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-500"
+              ></textarea>
+              <button
+                @click="submitComment"
+                class="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition duration-300 ease-in-out"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
     </main>
@@ -75,5 +104,4 @@
   const viewStudentProfile = (studentId) => {
   router.push({ name: 'student-profile', params: { id: studentId } });
 };
-  </script>
-  
+</script>
