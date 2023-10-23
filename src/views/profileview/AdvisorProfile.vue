@@ -12,17 +12,17 @@
               <img class="w-28 h-28 object-cover shadow-lg" :src="profile.image" />
             </div>
             <div>
-              <div class="grid grid-cols-1 gap-1 pt-5 pb-1.5 sm:grid-cols-3 sm:gap-4">
+              <div class="grid grid-cols-1 gap-1 pt-5 pb-1.5 sm:grid-cols-2 sm:gap-4">
                 <dt class="text-xl font-semibold px-8">Name</dt>
                 <h1 class="text-lg"> {{ profile.name }} {{ profile.surname }}</h1>
               </div>
   
-              <div class="grid grid-cols-1 gap-1 py-1.5 sm:grid-cols-3 sm:gap-4">
+              <div class="grid grid-cols-1 gap-1 py-1.5 sm:grid-cols-2 sm:gap-4">
                 <dt class="text-xl font-semibold px-8">Academic Position</dt>
                 <h1 class="text-lg">{{ profile.academicPosition }}</h1>
               </div>
   
-              <div class="grid grid-cols-1 gap-1 py-1.5 sm:grid-cols-3 sm:gap-4">
+              <div class="grid grid-cols-1 gap-1 py-1.5 sm:grid-cols-2 sm:gap-4">
                 <dt class="text-xl font-semibold px-8">Department</dt>
                 <h1 class="text-lg">{{ profile.department }}</h1>
               </div>

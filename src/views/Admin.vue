@@ -12,7 +12,7 @@
             <th class="text-left font-bold p-3">Name</th>
             <th class="text-left font-bold p-3">Academic Position</th>
             <th class="text-left font-bold p-3">Department</th>
-            <th class="text-center font-bold p-3">View Advisee</th>
+            <th class="text-center font-bold p-3">Advisoe Detail</th>
           </tr>
         </thead>
         <tbody>
