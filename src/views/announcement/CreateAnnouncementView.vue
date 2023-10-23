@@ -64,7 +64,7 @@
 
             <div class="text-right mt-6">
               <button
-                class="bg-[#42b883] hover:bg-[#27a26f] text-white font-bold py-2 px-4 rounded"
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-[#c98ecf] rounded-lg hover:bg-[#b062b7] focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg"
                 type="submit"
               >
                 Submit

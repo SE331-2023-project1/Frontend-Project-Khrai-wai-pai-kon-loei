@@ -30,16 +30,14 @@ const advisor = [
 
 const announce = [
   {
-    date: "10/15/2023 1:10 AM",
-    document: "Score Midterm.pdf",
-    title: "Some Title",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores vitae eaque voluptate eius perferendis pariatur unde placeat totam incidunt quaerat!",
+    document: "ProjectDescription2.pdf",
+    title: "Project after midterm",
+    description: "You can change your group if you want. The group should be 2 -3 people. You have to develop a new backend application. For the frontend you can develop from scratch or use your project I as the base project.",
   },
   {
-    date: "10/16/2023 2:20 AM",
-    document: "Homework Assignment.doc",
-    title: "Another Title",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores vitae eaque voluptate eius perferendis pariatur unde placeat totam incidunt quaerat!",
+    document: "Wireframe.figma",
+    title: "Wireframe and Prototype practice",
+    description: "Create a wireframe and prototype of ‘Making a purchase’ user flow on the wireframe resource template.",
   },
 ];
 </script>
