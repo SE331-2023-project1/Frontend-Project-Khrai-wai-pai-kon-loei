@@ -9,8 +9,7 @@ import { ref } from 'vue'
 import NProgress from 'nprogress'
 import Student from "../views/student/StudentListView.vue";
 import Teacher from "../views/teacher/TeacherListView.vue";
-import TeacherDetailView from "@/views/teacher/TeacherDetailView.vue";
-import TeacherLayoutView from "@/views/teacher/TeacherLayoutView.vue";
+import TeacherDetail from "@/views/teacher/TeacherDetailView.vue";
 import TeacherService from '@/services/TeacherService'
 import { useTeacherStore } from '@/stores/teacher';
 import { useTeacherAllStore } from '@/stores/all_teacher';
@@ -152,61 +151,10 @@ const router = createRouter({
       name: 'student-profile',
       component: StudentProfile,
     },
-    // {
-    //   path: '/student/:studentid',
-    //   name: 'student-layout',
-    //   component: StudentlayoutView,
-    //   props: (route) => ({ id: route.params.id }),
-    //   beforeEnter: (to) => {
-    //   //   // const id = to.params.studentid as string
-    //   //   // const studentStore = useStudentStore()
-    //   //   // const studentStore_all = useStudentAllStore();
-    //   //   // const student = studentStore_all.findStudentById(id);
-    //   //   // console.log(studentStore_all.getAllStudent())
-    //   //   if (student) {
-    //   //     studentStore.setStudent(student);
-    //   // } else {
-         
-    //   // }
-    //   //   console.log(studentStore.getAllStudent())
-    //   },
-
-    //   children: [
-    //     {
-    //       path: "",
-    //       name: "student-detail",
-    //       component: StudentDetailView,
-    //       props: true,
-    //     },
-    //   ],
-    // },
     {
-      path: "/teacher/:teacherID",
-      name: "teacher-layout",
-      component: TeacherLayoutView,
-      props: (route) => ({ id: route.params.id }),
-      beforeEnter: (to) => {
-        const id = to.params.teacherID as string
-        const teacherStore = useTeacherStore()
-        const teacherStore_all = useTeacherAllStore();
-        const teacher = teacherStore_all.findTeacherById(id);
-        console.log(teacherStore_all.getAllTeacher())
-        if (teacher) {
-          teacherStore.setTeacher(teacher);
-      } else {
-         
-      }
-        console.log(teacherStore.getAllTeacher())
-      },
-
-      children: [
-        {
-          path: "",
-          name: "teacher-detail",
-          component: TeacherDetailView,
-          props: true,
-        },
-      ],
+      path: '/teacher/:teacherID',
+      name: 'teacher-detail',
+      component: TeacherDetail,
     },
     {
       path: '/:catchAll(.*)',

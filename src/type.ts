@@ -20,6 +20,10 @@ export interface Student {
 }
 
 export interface Teacher {
+  teacherID: number;
+  name: string;
+  surname: string;
+  profileimage: string;
   id: number;
   images: [];
   department: string;
