@@ -12,6 +12,7 @@ const props = defineProps({
 
 <template>
   <article>
+    <!-- {{teacher}} -->
     <RouterLink :to="{name: 'teacher-detail', params:{teacherID: teacher?.teacherID}}">
     <div class="card-wrapper">
       <div class="card-body">
@@ -21,10 +22,11 @@ const props = defineProps({
         />
         <h2>
           {{ teacher?.name }} {{ teacher?.surname }}
-          <span>({{ teacher?.teacherID }})</span>
+        </h2>
+        <h2>
+          <span>(teacher id : {{ teacher?.teacherID }})</span>
         </h2>
         <p class="card-email"></p>
-        <p>{{ teacher?.teacherID }}</p>
       </div>
     </div>
     </RouterLink>

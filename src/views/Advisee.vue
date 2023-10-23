@@ -1,7 +1,7 @@
 <template>
     <main class="container">
       <span class="block text-center rounded-t-lg p-3 font-semibold text-lg bg-[url('https://tinyurl.com/4zf8nrhf')]">
-        All Advisee
+        My Advisor
       </span>
       <div class="bg-white p-6 rounded-b-lg shadow-md space-y-4">
         <!-- Table -->
@@ -9,24 +9,24 @@
           <thead>
             <tr>
               <th class="text-left font-bold">Picture</th>
-              <th class="text-left font-bold">StudentID</th>
+              <th class="text-left font-bold">TeacherID</th>
               <th class="text-left font-bold">Name</th>
-              <th class="text-left font-bold">Add Comment</th>
+              <th class="text-left font-bold">Comment</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(advisee, index) in advisees" :key="index">
+            <tr v-for="(advisor, index) in advisors" :key="index">
               <!-- Picture -->
               <td>
-                <img class="w-24 h-24 object-cover rounded-full shadow-lg" :src="advisee.picture" alt="Advisee Picture">
+                <img class="w-24 h-24 object-cover rounded-full shadow-lg" :src="advisor.picture" alt="Advisee Picture">
               </td>
               <!-- Id -->
               <td>
-                <div class="text-lg">{{ advisee.id }}</div>
+                <div class="text-lg">{{ advisor.id }}</div>
               </td>
               <!-- Name -->
               <td>
-                <div class="text-lg">{{ advisee.name }}</div>
+                <div class="text-lg">{{ advisor.name }}</div>
               </td>
               <!-- Comment Button -->
               <td>
@@ -46,16 +46,11 @@
     data() {
       return {
         isOpen: false,
-        advisees: [
+        advisors: [
           {
-            name: "MiKhao Namtok",
-            picture: "https://shorturl.at/u0257",
-            id: "642000",
-          },
-          {
-            name: "MiLueang NamSai",
-            picture: "https://shorturl.at/koKX4",
-            id: "642001",
+            name: "Saikhung Maisaikhai",
+            picture: "https://shorturl.at/juSZ4",
+            id: "2184633",
           },
           // Add more advisees with their data
         ],

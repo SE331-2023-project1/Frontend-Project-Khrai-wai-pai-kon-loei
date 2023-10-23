@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { StudentItem } from '@/type'
+import type { Student } from '@/type'
 import { ref } from 'vue'
-import { useStudentStore } from '@/stores/student'
+import { useStudentAllStore } from '@/stores/all_student'
 
-const store = useStudentStore()
-const student = ref<StudentItem | null>(null)
+const store = useStudentAllStore()
+const student = ref<Student | null>(null)
 
 const props = defineProps({
   id: String

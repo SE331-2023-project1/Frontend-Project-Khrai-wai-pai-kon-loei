@@ -1,5 +1,6 @@
 <template>
   <article>
+    <!-- {{student}} -->
     <RouterLink
       :to="{
         name: 'student-detail',
@@ -14,10 +15,13 @@
           />
           <h2>
             {{ student?.name }} {{ student?.surname }}
-            <span>({{ student?.studentid }})</span>
           </h2>
-          <p class="card-email">{{ student?.courselist.join(', ') }}</p>
-          <p>Advisor : {{ student?.teacherID }}</p>
+          <h2>
+            <span>(user id : {{ student?.studentid }})</span>
+          </h2>
+
+          <!-- <p class="card-email">{{ student?.courselist.join(", ") }}</p> -->
+          <p>Advisor id: {{ student?.teacherID }}</p>
         </div>
       </div>
     </RouterLink>
@@ -26,7 +30,7 @@
 
 <script setup lang="ts">
 import { type Student } from "@/type";
-import type { PropType } from "vue";
+import { type PropType } from "vue";
 
 const props = defineProps({
   student: {

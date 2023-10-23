@@ -1,19 +1,22 @@
 export interface Student {
-[studentid: string]: any
+studentid: number;
+name: string;
+surname: string;
+teacherID: number;
   id: number,
-  images: [],
+  profileimage: string,
   department: string,
   teacher: {
-      id: number,
-      images: [],
-      department: string
-  },
+    id: number,
+    images: string[], // Replace with the actual type
+    department: string,
+  };
   user: {
-      id: number,
-      parentId: number,
-      firstname: string,
-      lastname: string
-  }
+    id: number,
+    parentId: number,
+    firstname: string,
+    lastname: string
+  };
 }
 
 export interface Teacher {
@@ -42,3 +45,9 @@ export interface Contributor {
   profileimage: string,
 }
 
+export interface AnnouncementItem {
+  id: number
+  title: string
+  content: string
+  images: string[]
+}

@@ -47,6 +47,7 @@
     </div>
 
     <div class="container">
+      
       <TeacherCard
         class="teacher"
         v-for="teacher in displayedTeachers"
@@ -139,7 +140,7 @@ onMounted(async () => {
     const teachersData = response.data.map((Teacher) => ({
       name: Teacher.user.firstname,
       surname: Teacher.user.lastname,
-      teacherID: Teacher.user.toString(),
+      teacherID: Teacher.id,
       profileimage: "", // You can fill this in with the actual image URL
       courselist: [], // You can fill this in with the course data
       comment: [], // You can fill this in with comment data

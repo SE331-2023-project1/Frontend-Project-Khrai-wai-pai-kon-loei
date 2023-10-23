@@ -81,10 +81,18 @@ if (token && userRole) {
       <RouterLink
         :to="{ name: 'Advisor' }"
         class="button"
-        v-if="authStore.isAdmin()"
+        v-if="authStore.isAdmin() || authStore.isTeacher()"
       >
         <span class="material-symbols-outlined">groups_2</span>
-        <span class="text">Advisor</span>
+        <span class="text">All Advisee</span>
+      </RouterLink>
+      <RouterLink
+        :to="{ name: 'Advisee' }"
+        class="button"
+        v-if="authStore.isAdmin() || authStore.isStudent()"
+      >
+        <span class="material-symbols-outlined"> manage_accounts </span>
+        <span class="text">My Advisor</span>
       </RouterLink>
       <RouterLink
         :to="{ name: 'Admin' }"
@@ -109,7 +117,7 @@ if (token && userRole) {
       <RouterLink
         :to="{ name: 'CreateAnnouncement' }"
         class="button"
-        v-if="authStore.isTeacher()"
+        v-if="authStore.isTeacher() || authStore.isAdmin()"
       >
         <span class="material-symbols-outlined">Announcement</span>
         <span class="text">CreateAnnouncement</span>
