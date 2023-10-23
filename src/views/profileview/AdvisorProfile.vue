@@ -7,8 +7,8 @@
       <div style="background-color: #fff9fd;">
         <div class="p-6 rounded-lg shadow-md space-y-4">
           <div class="flex items-center space-x-4 m-5 mt-2" v-for="(profile, index) in profiles" :key="index">
-            <div class="p-4">
-              <img class="w-24 h-24 object-cover rounded-full shadow-lg" :src="profile.image" />
+            <div class="px-5">
+              <img class="w-28 h-28 object-cover shadow-lg" :src="profile.image" />
             </div>
             <div>
               <div class="grid grid-cols-1 gap-1 pt-5 pb-1.5 sm:grid-cols-3 sm:gap-4">
