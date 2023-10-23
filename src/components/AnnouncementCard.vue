@@ -8,11 +8,11 @@
         alt=""
         class="w-20 h-20 object-cover rounded-full shadow-lg"
       />
-        <div class="p-5 font-semibold text-xl text-center text-black">{{ advisor.name }} {{ advisor.surname }}</div>
+        <div class="p-5 font-semibold text-xl text-center text-gray-500">{{ advisor.name }} {{ advisor.surname }}</div>
       </div>
     </div>
     <div>
-      <h5 class="mt-1 text-2xl font-bold text-gray-500 py-1">{{ announce.title }}</h5>
+      <h5 class="mt-1 text-2xl font-bold text-black py-1">{{ announce.title }}</h5>
       <p class="text-gray-600 py-1">{{ announce.description }}</p>
     </div>
 
