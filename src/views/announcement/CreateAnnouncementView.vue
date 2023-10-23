@@ -47,16 +47,6 @@
                       stroke-linejoin="round"
                     ></path>
                   </svg>
-                  <div class="flex text-sm text-gray-600">
-                    <label
-                      for="file-upload"
-                      class="relative cursor-pointer bg-white rounded-md font-medium text-gray-600 hover:text-[#42b883] focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#42b883]"
-                    >
-                      
-                      <ImageUpload v-model="announcement.images" class="my-1" />
-                    </label>
-                    
-                  </div>
                   <p class="text-xs text-gray-600">PNG, JPG, GIF up to 10MB</p>
                 </div>
               </div>
