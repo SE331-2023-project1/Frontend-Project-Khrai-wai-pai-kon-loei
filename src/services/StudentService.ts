@@ -3,6 +3,7 @@ import type { Axios, AxiosInstance, AxiosResponse } from 'axios'
 import type { Student } from '@/type'
 import type { Teacher } from '@/type'
 import apiClient from './AxiosClient'
+import type { User } from '@/type'
 
 // const apiClient: AxiosInstance = axios.create({
 //   baseURL: import.meta.env.VITE_BACKEND_URL,
@@ -36,5 +37,17 @@ export default {
   },
   getAllStudents(): Promise<AxiosResponse<Student[]>> {
     return apiClient.get<Student[]>('/students')
+  },
+
+  getSearchUser(keyword: string): Promise<AxiosResponse<User[]>>{
+    return apiClient.get<User[]>('/api/v1/auth/searchUser?keyword=' + keyword)
+  },
+
+  searchUser(keyword: string): Promise<AxiosResponse<User[]>> {
+    return apiClient.get<User[]>('/api/v1/auth/searchUser', {
+      params: {
+        keyword: keyword,
+      },
+    });
   },
 }
