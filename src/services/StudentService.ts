@@ -24,12 +24,12 @@ export default {
     return apiClient.get<Student>('students/'+studentid.toString())
   },
   
-  getTeacherByTeacherID(teacherID: string): Promise<AxiosResponse<Teacher>> {
-    return apiClient.get<Teacher>('teachers/' + '?teacherID=' + teacherID);
+  getTeacherById(teacherID : string) : Promise<AxiosResponse<Teacher>>{
+    return apiClient.get<Teacher>('teachers/'+teacherID.toString())
   },
   // New method to fetch teacher using teacherID from a student
   getTeacherByStudent(student: Student): Promise<AxiosResponse<Teacher>> {
-    return this.getTeacherByTeacherID(student.teacherID); // Assuming student.teacherID holds the teacher's ID
+    return this.getTeacherById(student.teacherID); // Assuming student.teacherID holds the teacher's ID
   },
   getStudents(perPage: number, page: number): Promise<AxiosResponse<Student[]>> {
     return apiClient.get<Student[]>('/students?_limit=' + perPage + '&_page=' + page)
