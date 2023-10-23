@@ -1,6 +1,6 @@
 <template>
   <main class="container">
-    <span class="block text-center rounded-t-lg p-3 font-semibold text-lg bg-[url('https://tinyurl.com/4zf8nrhf')]">
+    <span class="block text-center rounded-t-lg p-3 font-semibold text-lg" style="background-color: #e8d3f4;">
       My Advisee Student
     </span>
 
@@ -26,7 +26,7 @@
               <div class="text-lg">{{ student.name }} {{ student.surname }}</div>
             </td>
             <td>
-              <router-link :to="{ name: 'advisor-profile', params: { id: index } }" 
+              <router-link :to="{ name: 'student-profile', params: { id: index } }" 
               class="button-19 bg-indigo-600 text-white rounded-md p-2 shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                   View
                 </router-link>
@@ -65,9 +65,9 @@ const students = [
     profiles.sort((a, b) => b.likes - a.likes);
   };
   
-  const viewAdviseeProfile = (advisorId) => {
-    router.push({ name: 'advisor-profile', params: { id: advisorId } });
-  };
+  const viewStudentProfile = (studentId) => {
+  router.push({ name: 'student-profile', params: { id: studentId } });
+};
 </script>
 
 <style>

@@ -9,10 +9,10 @@
         <thead>
           <tr>
             <th class="text-center font-bold p-3"> </th>
+            <th class="text-left font-bold p-3">AdvisorID</th>
             <th class="text-left font-bold p-3">Name</th>
-            <th class="text-left font-bold p-3">Academic Position</th>
             <th class="text-left font-bold p-3">Department</th>
-            <th class="text-center font-bold p-3">Advisoe Detail</th>
+            <th class="text-center font-bold p-3">Advisor Detail</th>
           </tr>
         </thead>
         <tbody>
@@ -21,10 +21,10 @@
               <img :src="profile.image" class="w-20 h-20 object-cover rounded-full shadow-lg" alt="Profile Image" />
             </td>
             <td class="p-3">
-              <div class="text-lg">{{ profile.name }} {{ profile.surname }}</div>
+              <div class="text-lg">{{ profile.id}}</div>
             </td>
             <td class="p-3">
-              <div class="text-lg">{{ profile.academicPosition }}</div>
+              <div class="text-lg">{{ profile.name }} {{ profile.surname }}</div>
             </td>
             <td class="p-3">
               <div class="text-lg">{{ profile.department }}</div>
@@ -47,7 +47,7 @@
 
 const profiles = [
   {
-    id: 1,
+    id: 23423,
     name: "Wojciech",
     surname: "Smith",
     image: "https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?q=65&auto=format&w=2270&ar=2:1&fit=crop",
@@ -55,7 +55,7 @@ const profiles = [
     department: "Computer Science",
   },
   {
-    id: 2,
+    id: 87234,
     name: "Maria",
     surname: "Johnson",
     image: "https://preview.redd.it/r3lcc7gf64791.png?width=540&format=png&auto=webp&s=9d32ec46f884486fd59dfd01453bf5d07bf30d75",
@@ -63,7 +63,7 @@ const profiles = [
     department: "Biology",
   },
   {
-    id: 3,
+    id: 932847,
     name: "Anna",
     surname: "Williams",
     image: "https://media.istockphoto.com/id/1434414228/photo/stern-sad-cat-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=wis7NGP0_4_Vwti3xioilh3NfYrwHO-JoRMvFVzr6Ck=",
