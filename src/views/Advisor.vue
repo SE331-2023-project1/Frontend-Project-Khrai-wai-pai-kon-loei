@@ -8,7 +8,7 @@
       <table class="w-full bg-white rounded-b-lg shadow-md">
         <thead>
           <tr>
-            <th class="text-center font-bold p-3"> picture </th>
+            <th class="text-center font-bold p-3"></th>
             <th class="text-left font-bold p-3">StudentID</th>
             <th class="text-left font-bold p-3">Name</th>
             <th class="text-left font-bold p-3">Student Detail</th>
