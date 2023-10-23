@@ -134,7 +134,7 @@ const editToggle = () => {
           <div class="md:col-span-6 text-right mt-2">
             <div class="inline-flex items-end">
               <button
-                class="bg-[#42b883] hover:bg-[#27a26f] text-white font-bold py-2 px-4 rounded disabled:cursor-not-allowed disabled:bg-[#42b88393]"
+                class="inline-flex disabled:cursor-not-allowed items-center px-4 py-2 text-sm font-medium text-center text-white bg-[#c98ecf] rounded-lg hover:bg-[#b062b7] focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg"
                 type="submit"
                 :disabled="!isEdit"
               >
