@@ -48,7 +48,7 @@
         isOpen: false,
         advisors: [
           {
-            name: "Saikhung Maisaikhai",
+            name: "Aj.Saikhung Maisaikhai",
             picture: "https://shorturl.at/juSZ4",
             id: "2184633",
           },
