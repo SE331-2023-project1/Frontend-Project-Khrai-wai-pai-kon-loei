@@ -4,44 +4,35 @@
         All Advisor
       </span>
   
-      <div class="content">
-        <table class="w-full bg-white">
-          <thead>
-            <tr>
-              <th class="text-center font-bold p-3"> </th>
-              <th class="text-left font-bold p-3">Name</th>
-              <th class="text-left font-bold p-3">Academic Position</th>
-              <th class="text-left font-bold p-3">Department</th>
-              <th class="text-center font-bold p-3">View Advisee</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(profile, index) in profiles" :key="index">
-              <td class="flex justify-center items-center p-3">
-                <img :src="profile.image" class="w-24 h-24 object-cover rounded-full shadow-lg" alt="Profile Image" />
-              </td>
-              <td class="p-3">
-                <div class="text-lg">{{ profile.name }} {{ profile.surname }}</div>
-              </td>
-              <td class="p-3">
-                <div class="text-lg">{{ profile.academicPosition }}</div>
-              </td>
-              <td class="p-3">
-                <div class="text-lg">{{ profile.department }}</div>
-              </td>
-              <td class="text-center p-3">
-                <button @click="viewAdvisee(profile.id)">View</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div style="background-color: #fff9fd;">
+        <div class="p-6 rounded-lg shadow-md space-y-4">
+          <div class="flex items-center space-x-4 m-5 mt-2" v-for="(profile, index) in profiles" :key="index">
+            <div class="p-4">
+              <img class="w-24 h-24 object-cover rounded-full shadow-lg" :src="profile.image" />
+            </div>
+            <div>
+              <div class="grid grid-cols-1 gap-1 pt-5 pb-1.5 sm:grid-cols-3 sm:gap-4">
+                <dt class="text-xl font-semibold">Name</dt>
+                <h1 class="text-lg"> {{ profile.name }} {{ profile.surname }}</h1>
+              </div>
+  
+              <div class="grid grid-cols-1 gap-1 py-1.5 sm:grid-cols-3 sm:gap-4">
+                <dt class="text-xl font-semibold">Academic Position</dt>
+                <h1 class="text-lg">{{ profile.academicPosition }}</h1>
+              </div>
+  
+              <div class="grid grid-cols-1 gap-1 py-1.5 sm:grid-cols-3 sm:gap-4">
+                <dt class="text-xl font-semibold">Department</dt>
+                <h1 class="text-lg">{{ profile.department }}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   </template>
   
-  
   <script setup>
-  
   const profiles = [
     {
       id: 1,
@@ -51,22 +42,7 @@
       academicPosition: "Professor",
       department: "Computer Science",
     },
-    {
-      id: 2,
-      name: "Maria",
-      surname: "Johnson",
-      image: "https://preview.redd.it/r3lcc7gf64791.png?width=540&format=png&auto=webp&s=9d32ec46f884486fd59dfd01453bf5d07bf30d75",
-      academicPosition: "Assistant Professor",
-      department: "Biology",
-    },
-    {
-      id: 3,
-      name: "Anna",
-      surname: "Williams",
-      image: "https://media.istockphoto.com/id/1434414228/photo/stern-sad-cat-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=wis7NGP0_4_Vwti3xioilh3NfYrwHO-JoRMvFVzr6Ck=",
-      academicPosition: "Associate Professor",
-      department: "Physics",
-    },
+    // Add more profiles here
   ];
   
   const sortAsc = () => {
@@ -76,9 +52,9 @@
   const sortDesc = () => {
     profiles.sort((a, b) => b.likes - a.likes);
   };
-  </script>
   
-  <style>
-  /* Your existing CSS styles here */
-  </style>
+  const viewAdviseeProfile = (advisorId) => {
+    router.push({ name: 'advisor-profile', params: { id: advisorId } });
+  };
+  </script>
   
