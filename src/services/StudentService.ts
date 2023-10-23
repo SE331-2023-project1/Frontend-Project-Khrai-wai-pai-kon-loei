@@ -21,7 +21,7 @@ export default {
   //   return apiClient.get<Student[]>('students')
   // },
   getStudentById(studentid : string) : Promise<AxiosResponse<Student>>{
-    return apiClient.get<Student>('students/'+ '?studentid='+studentid.toString())
+    return apiClient.get<Student>('students/'+studentid.toString())
   },
   
   getTeacherByTeacherID(teacherID: string): Promise<AxiosResponse<Teacher>> {

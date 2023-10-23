@@ -1,53 +1,51 @@
 export interface Student {
-studentid: number;
-name: string;
-surname: string;
-teacherID: number;
-  id: number,
-  profileimage: string,
-  department: string,
+  studentid: number;
+  name: string;
+  surname: string;
+  teacherID: number;
+  id: number;
+  profileimage: string;
+  department: string;
   teacher: {
-    id: number,
-    images: string[], // Replace with the actual type
-    department: string,
+    id: number;
+    images: string[]; // Replace with the actual type
+    department: string;
   };
   user: {
-    id: number,
-    parentId: number,
-    firstname: string,
-    lastname: string
+    id: number;
+    parentId: number;
+    firstname: string;
+    lastname: string;
   };
 }
 
 export interface Teacher {
-    id: number,
-    images: [],
-    department: string,
-    students: {
-          id: number,
-          images: [],
-          department: string
-            
-      },
-    user: {
-        id: number,
-        parentId: number,
-        firstname: string,
-        lastname: string
-        }
-    
+  id: number;
+  images: [];
+  department: string;
+  students: {
+    id: number;
+    images: [];
+    department: string;
+  };
+  user: {
+    id: number;
+    parentId: number;
+    firstname: string;
+    lastname: string;
+  };
 }
 
 export interface Contributor {
-  name: string,
-  surname: string,
-  studentId: string,
-  profileimage: string,
+  name: string;
+  surname: string;
+  studentId: string;
+  profileimage: string;
 }
 
 export interface AnnouncementItem {
-  id: number
-  title: string
-  content: string
-  images: string[]
+  id: number;
+  title: string;
+  content: string;
+  images: string[];
 }
