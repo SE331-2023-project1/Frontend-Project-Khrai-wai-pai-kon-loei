@@ -6,30 +6,32 @@
   
       <div style="background-color: #fff9fd;">
         <div class="p-6 rounded-lg shadow-md space-y-4">
+        <div class="center-profile">
           <div class="flex items-center space-x-4 m-5 mt-2" v-for="(profile, index) in profiles" :key="index">
             <div class="px-5">
               <img class="w-28 h-28 object-cover shadow-lg" :src="profile.image" />
             </div>
             <div>
               <div class="grid grid-cols-1 gap-1 pt-5 pb-1.5 sm:grid-cols-3 sm:gap-4">
-                <dt class="text-xl font-semibold">Name</dt>
+                <dt class="text-xl font-semibold px-8">Name</dt>
                 <h1 class="text-lg"> {{ profile.name }} {{ profile.surname }}</h1>
               </div>
   
               <div class="grid grid-cols-1 gap-1 py-1.5 sm:grid-cols-3 sm:gap-4">
-                <dt class="text-xl font-semibold">Academic Position</dt>
+                <dt class="text-xl font-semibold px-8">Academic Position</dt>
                 <h1 class="text-lg">{{ profile.academicPosition }}</h1>
               </div>
   
               <div class="grid grid-cols-1 gap-1 py-1.5 sm:grid-cols-3 sm:gap-4">
-                <dt class="text-xl font-semibold">Department</dt>
+                <dt class="text-xl font-semibold px-8">Department</dt>
                 <h1 class="text-lg">{{ profile.department }}</h1>
               </div>
             </div>
           </div>
+        </div>
   
           <!-- Student information -->
-          <h1 class="text-xl font-semibold">List of Advisee Student :</h1>
+          <h1 class="text-xl font-semibold">List of Advisee Student</h1>
           <div class="bg-white p-3 rounded-lg shadow-md space-y-4" v-for="(student, studentIndex) in students" :key="studentIndex">
             <div class="flex items-center space-x-8 ">
               <img class="w-24 h-24 object-cover rounded-full shadow-lg" :src="student.profileimage" />
@@ -87,4 +89,12 @@
     router.push({ name: 'advisor-profile', params: { id: advisorId } });
   };
   </script>
+
+<style>
+.center-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>
   
