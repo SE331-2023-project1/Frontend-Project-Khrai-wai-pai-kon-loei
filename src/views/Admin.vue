@@ -12,6 +12,7 @@
             <th class="text-left font-bold p-3">Name</th>
             <th class="text-left font-bold p-3">Academic Position</th>
             <th class="text-left font-bold p-3">Department</th>
+            <th class="text-center font-bold p-3">View Advisee</th>
           </tr>
         </thead>
         <tbody>
@@ -28,6 +29,11 @@
             <td class="p-3">
               <div class="text-lg">{{ profile.department }}</div>
             </td>
+            <td class="text-center">
+              <router-link :to="{ name: 'advisor-profile', params: { id: index } }" class="bg-blue-500 text-white rounded-full p-2">
+                  View
+                </router-link>
+              </td>
           </tr>
         </tbody>
       </table>
@@ -71,6 +77,10 @@ const sortAsc = () => {
 
 const sortDesc = () => {
   profiles.sort((a, b) => b.likes - a.likes);
+};
+
+const viewAdviseeProfile = (advisorId) => {
+  router.push({ name: 'advisor-profile', params: { id: advisorId } });
 };
 </script>
 
