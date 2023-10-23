@@ -84,7 +84,15 @@ if (token && userRole) {
         v-if="authStore.isAdmin() || authStore.isTeacher()"
       >
         <span class="material-symbols-outlined">groups_2</span>
-        <span class="text">Advisor</span>
+        <span class="text">All Advisee</span>
+      </RouterLink>
+      <RouterLink
+        :to="{ name: 'Advisee' }"
+        class="button"
+        v-if="authStore.isAdmin() || authStore.isStudent()"
+      >
+        <span class="material-symbols-outlined"> manage_accounts </span>
+        <span class="text">My Advisor</span>
       </RouterLink>
       <RouterLink
         :to="{ name: 'Admin' }"
