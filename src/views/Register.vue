@@ -146,7 +146,7 @@ const onSubmit = handleSubmit((values) => {
           </div>
 
           <div class="mt-2">
-            <InputText v-model="passwordrepeat" type="passwordrepeat" :error="errors['passwordrepeat']"></InputText>
+            <InputText v-model="passwordrepeat" type="password" :error="errors['passwordrepeat']"></InputText>
           </div>
         </div>
         <div>
