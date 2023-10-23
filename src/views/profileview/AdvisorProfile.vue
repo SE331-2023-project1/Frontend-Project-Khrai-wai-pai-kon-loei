@@ -1,47 +1,54 @@
 <template>
     <main class="container">
       <span class="block text-center rounded-t-lg p-3 font-semibold text-lg bg-[url('https://tinyurl.com/4zf8nrhf')]">
-        All Advisor
+        Advisor Profile
       </span>
   
-      <div class="content">
-        <table class="w-full bg-white">
-          <thead>
-            <tr>
-              <th class="text-center font-bold p-3"> </th>
-              <th class="text-left font-bold p-3">Name</th>
-              <th class="text-left font-bold p-3">Academic Position</th>
-              <th class="text-left font-bold p-3">Department</th>
-              <th class="text-center font-bold p-3">View Advisee</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(profile, index) in profiles" :key="index">
-              <td class="flex justify-center items-center p-3">
-                <img :src="profile.image" class="w-24 h-24 object-cover rounded-full shadow-lg" alt="Profile Image" />
-              </td>
-              <td class="p-3">
-                <div class="text-lg">{{ profile.name }} {{ profile.surname }}</div>
-              </td>
-              <td class="p-3">
-                <div class="text-lg">{{ profile.academicPosition }}</div>
-              </td>
-              <td class="p-3">
-                <div class="text-lg">{{ profile.department }}</div>
-              </td>
-              <td class="text-center p-3">
-                <button @click="viewAdvisee(profile.id)">View</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div style="background-color: #fff9fd;">
+        <div class="p-6 rounded-lg shadow-md space-y-4">
+        <div class="center-profile">
+          <div class="flex items-center space-x-4 m-5 mt-2" v-for="(profile, index) in profiles" :key="index">
+            <div class="px-5">
+              <img class="w-28 h-28 object-cover shadow-lg" :src="profile.image" />
+            </div>
+            <div>
+              <div class="grid grid-cols-1 gap-1 pt-5 pb-1.5 sm:grid-cols-3 sm:gap-4">
+                <dt class="text-xl font-semibold px-8">Name</dt>
+                <h1 class="text-lg"> {{ profile.name }} {{ profile.surname }}</h1>
+              </div>
+  
+              <div class="grid grid-cols-1 gap-1 py-1.5 sm:grid-cols-3 sm:gap-4">
+                <dt class="text-xl font-semibold px-8">Academic Position</dt>
+                <h1 class="text-lg">{{ profile.academicPosition }}</h1>
+              </div>
+  
+              <div class="grid grid-cols-1 gap-1 py-1.5 sm:grid-cols-3 sm:gap-4">
+                <dt class="text-xl font-semibold px-8">Department</dt>
+                <h1 class="text-lg">{{ profile.department }}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+          <!-- Student information -->
+          <h1 class="text-xl font-semibold">List of Advisee Student</h1>
+          <div class="bg-white p-3 rounded-lg shadow-md space-y-4" v-for="(student, studentIndex) in students" :key="studentIndex">
+            <div class="flex items-center space-x-8 ">
+              <img class="w-24 h-24 object-cover rounded-full shadow-lg" :src="student.profileimage" />
+              <div>
+                <h1 class="text-xl font-bold"> Name :
+                  {{ student.name }} {{ student.surname }}
+                </h1>
+                <h1 class="text-lg py-2">StudentID : {{ student.studentID }}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   </template>
   
-  
   <script setup>
-  
   const profiles = [
     {
       id: 1,
@@ -51,22 +58,23 @@
       academicPosition: "Professor",
       department: "Computer Science",
     },
+    // Add more profiles here
+  ];
+  
+  const students = [
     {
-      id: 2,
-      name: "Maria",
-      surname: "Johnson",
-      image: "https://preview.redd.it/r3lcc7gf64791.png?width=540&format=png&auto=webp&s=9d32ec46f884486fd59dfd01453bf5d07bf30d75",
-      academicPosition: "Assistant Professor",
-      department: "Biology",
+      name: "John",
+      surname: "Doe",
+      profileimage: "https://i.redd.it/nr74fvdg5bbb1.jpg",
+      studentID: "12345",
     },
     {
-      id: 3,
-      name: "Anna",
-      surname: "Williams",
-      image: "https://media.istockphoto.com/id/1434414228/photo/stern-sad-cat-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=wis7NGP0_4_Vwti3xioilh3NfYrwHO-JoRMvFVzr6Ck=",
-      academicPosition: "Associate Professor",
-      department: "Physics",
+      name: "Jane",
+      surname: "Smith",
+      profileimage: "https://i.pinimg.com/236x/d4/f0/0b/d4f00bc5e8e8580e1192d8b2fc8b1b42.jpg",
+      studentID: "67890",
     },
+    // Add more student profiles here
   ];
   
   const sortAsc = () => {
@@ -76,9 +84,17 @@
   const sortDesc = () => {
     profiles.sort((a, b) => b.likes - a.likes);
   };
-  </script>
   
-  <style>
-  /* Your existing CSS styles here */
-  </style>
+  const viewAdviseeProfile = (advisorId) => {
+    router.push({ name: 'advisor-profile', params: { id: advisorId } });
+  };
+  </script>
+
+<style>
+.center-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>
   
