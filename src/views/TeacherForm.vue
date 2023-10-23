@@ -7,7 +7,7 @@
   <div class="form">
       <div class="form-section">
         <div class="from">
-          <h1 class="font-bold text-3xl mb-4 text-center">Add New Teacher Form</h1>
+          <h1 class="font-semibold text-2xl mb-4 text-center text-black">Add New Teacher Form</h1>
           <form class="space-y-6" @submit.prevent="onSubmit">
         <!-- firstname -->
         <div class="mt-2">
