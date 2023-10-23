@@ -35,7 +35,7 @@
                 <h1 class="text-xl font-bold py-1"> Name :
                     {{ profile.name }} {{ profile.surname }}
                 </h1>
-                <h1 class="text-lg py-1">Academic Position : {{ profile.academicPosition }}</h1>
+                <h1 class="text-lg py-1">AdvisorID : {{ profile.id }}</h1>
                 <h1 class="text-lg py-1">Department : {{ profile.department }}</h1>
               </div>
             </div>
@@ -84,7 +84,7 @@
 
   const profiles = [
     {
-      id: 1,
+      id: 23423,
       name: "Wojciech",
       surname: "Smith",
       image: "https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?q=65&auto=format&w=2270&ar=2:1&fit=crop",
