@@ -1,6 +1,6 @@
 <template>
   <main class="flex flex-col items-center justify-center">
-    <h1 class="text-2xl font-bold mb-4 text-gray-700">Announcement</h1>
+    <h1 class="text-2xl font-bold mb-4 text-black">Announcement</h1>
     <AnnouncementCard :advisor="advisor[0]" :announce="announce[0]" />
     <AnnouncementCard :advisor="advisor[1]" :announce="announce[1]" />
   </main>

@@ -8,21 +8,22 @@
         class="w-20 h-20 object-cover rounded-full shadow-lg"
       />
       <div>
-        <div class="px-4 font-semibold text-xl">{{ advisor.name }} {{ advisor.surname }}</div>
+        <div class="px-4 font-semibold text-xl text-center">{{ advisor.name }} {{ advisor.surname }}</div>
       </div>
       </div>
     </div>
+    <div>
+      <h5 class="mt-1 text-2xl font-bold text-gray-500 py-1">{{ announce.title }}</h5>
+      <p class="text-gray-600 py-1">{{ announce.description }}</p>
+    </div>
+
     <div>
       <span class="material-symbols-outlined"><span>{{ announce.document }}</span></span>
     </div>
-    <div>
-      <h5 class="mb-1 text-xl font-medium text-gray-900">{{ announce.title }}</h5>
-      <p class="text-gray-600">{{ announce.description }}</p>
-    </div>
 
-    <div> {{ announce.date }}</div>
+    <div :style="{ display: 'flex', flexDirection: 'row-reverse' }"> {{ announce.date }}</div>
 
-    <div class="flex mt-4 space-x-3 md:mt-6">
+    <div class="flex mt-4 space-x-3 md:mt-6" :style="{ display: 'flex', flexDirection: 'row-reverse' }">
       <a class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-[#42b883] rounded-lg hover:bg-[#27a26f] focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg"
         >Read more</a
       >
