@@ -1,15 +1,17 @@
 <script setup lang="ts">
 const truncate = (text: string) => {
   if (text.length > 8) {
-    return text.substring(0, 8) + '...'
+    return text.substring(0, 8) + "...";
   }
-  return text
-}
+  return text;
+};
 </script>
 
 <template>
   <!-- <RouterLink :to="{ name: 'student-detail', params: { id: student?.studentId } }"> -->
-  <div class="w-[60%] bg-white border border-gray-200 rounded-lg shadow hover:shadow-md">
+  <div
+    class="w-[60%] bg-white border border-gray-200 rounded-lg shadow hover:shadow-md"
+  >
     <div class="flex flex-col p-8">
       <div class="flex flex-row text-sm text-gray-500">
         <img
@@ -18,13 +20,21 @@ const truncate = (text: string) => {
           class="h-12 rounded-full mb-4 mr-4"
         />
         <div class="">
-            <div class="">Frog</div>
-            <div class="">— 10/15/2023 1:10 AM</div>
+          <div class="">Frog</div>
+          <div class="">— 10/15/2023 1:10 AM</div>
         </div>
       </div>
       <div>
+        <span class="material-symbols-outlined"><span>Score Midterm.pdf</span> </span>
+        
+      </div>
+      <div>
         <h5 class="mb-1 text-xl font-medium text-gray-900">Some Title</h5>
-        <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores vitae eaque voluptate eius perferendis pariatur unde placeat totam incidunt quaerat!</p>
+        <p class="text-gray-600">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores vitae
+          eaque voluptate eius perferendis pariatur unde placeat totam incidunt
+          quaerat!
+        </p>
       </div>
 
       <div class="flex mt-4 space-x-3 md:mt-6">
