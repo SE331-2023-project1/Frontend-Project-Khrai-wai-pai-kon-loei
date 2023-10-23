@@ -28,6 +28,7 @@ import Advisor from "../views/Advisor.vue";
 import ProfileView from '../views/profile/ProfileView.vue'
 import Advisee from '../views/Advisee.vue';
 import AdvisorProfile from '../views/profileview/AdvisorProfile.vue';
+import StudentProfile from '../views/profileview/StudentProfile.vue';
 // router.beforeEach(async () => {
 //   NProgress.start()
 //   const teacherStore = useTeacherStore()
@@ -145,6 +146,11 @@ const router = createRouter({
       path: '/advisors/:id',
       name: 'advisor-profile',
       component: AdvisorProfile,
+    },
+    {
+      path: '/student-profile/:id',
+      name: 'student-profile',
+      component: StudentProfile,
     },
     // {
     //   path: '/student/:studentid',

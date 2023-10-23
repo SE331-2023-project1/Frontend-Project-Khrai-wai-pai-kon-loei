@@ -1,13 +1,12 @@
 <template>
     <main class="container">
       <span class="block text-center rounded-t-lg p-3 font-semibold text-lg bg-[url('https://tinyurl.com/4zf8nrhf')]">
-        Advisor Profile
+        Student Profile
       </span>
 
       <!-- Student information -->
       <div style="background-color: #fff9fd;">
         <div class="p-6 rounded-lg shadow-md space-y-4">
-        <div class="center-profile">
           <div class="flex items-center space-x-4 m-5 mt-2" v-for="(student, studentIndex) in students" :key="studentIndex">
             <div class="px-5">
               <img class="w-28 h-28 object-cover shadow-lg" :src="student.profileimage" />
@@ -24,7 +23,6 @@
               </div>
             </div>
           </div>
-        </div>
   
           <!-- Teacher information -->
           <h1 class="text-xl font-semibold">Student's Advisor</h1>
@@ -46,6 +44,15 @@
   </template>
   
   <script setup>
+  const students = [
+    {
+      name: "John",
+      surname: "Doe",
+      profileimage: "https://i.redd.it/nr74fvdg5bbb1.jpg",
+      studentID: "12345",
+    },
+  ];
+
   const profiles = [
     {
       id: 1,
@@ -54,16 +61,6 @@
       image: "https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?q=65&auto=format&w=2270&ar=2:1&fit=crop",
       academicPosition: "Professor",
       department: "Computer Science",
-    },
-    // Add more profiles here
-  ];
-  
-  const students = [
-    {
-      name: "John",
-      surname: "Doe",
-      profileimage: "https://i.redd.it/nr74fvdg5bbb1.jpg",
-      studentID: "12345",
     },
   ];
   
@@ -74,6 +71,9 @@
   const sortDesc = () => {
     profiles.sort((a, b) => b.likes - a.likes);
   };
-  
+
+  const viewStudentProfile = (studentId) => {
+  router.push({ name: 'student-profile', params: { id: studentId } });
+};
   </script>
   
