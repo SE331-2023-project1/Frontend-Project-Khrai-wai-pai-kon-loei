@@ -136,7 +136,7 @@ const viewAdviseeProfile = (advisorId) => {
     }
     
     .button-19:focus {
-      outline: 2px solid #4F46E5;
+      outline: 2px solid #c98ecf;
       user-select: auto;
       outline-offset: 4px
     }

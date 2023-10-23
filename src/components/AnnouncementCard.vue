@@ -21,11 +21,11 @@
       <span class="material-symbols-outlined"><span>{{ announce.document }}</span></span>
     </div>
 
-    <div :style="{ display: 'flex', flexDirection: 'row-reverse' }"> {{ announce.date }}</div>
+    <div class="text-gray-400" :style="{ display: 'flex', flexDirection: 'row-reverse' }"> {{ announce.date }}</div>
 
-    <div class="flex mt-4 space-x-3 md:mt-6" :style="{ display: 'flex', flexDirection: 'row-reverse' }">
-      <a class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-[#42b883] rounded-lg hover:bg-[#27a26f] focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg"
-        >Read more</a
+    <div class="flex mt-4 space-x-3 md:mt-2" :style="{ display: 'flex', flexDirection: 'row-reverse'}">
+      <a class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-[#c98ecf] rounded-lg hover:bg-[#b062b7] focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg"
+      >Read more</a
       >
     </div>
  </div>
