@@ -29,7 +29,7 @@ import Advisee from '../views/Advisee.vue';
 import AdvisorProfile from '../views/profileview/AdvisorProfile.vue';
 import StudentProfile from '../views/profileview/StudentProfile.vue';
 // router.beforeEach(async () => {
-//   NProgress.start()
+  NProgress.start()
 //   const teacherStore = useTeacherStore()
 //   const studentStore = useStudentStore()
 //   const authStore = useAuthStore()
@@ -54,7 +54,7 @@ import StudentProfile from '../views/profileview/StudentProfile.vue';
 //   })
 
 // router.afterEach(() => {
-//     NProgress.done()
+    
 // })
 
 const router = createRouter({
