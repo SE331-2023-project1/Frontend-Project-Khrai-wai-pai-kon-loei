@@ -159,7 +159,7 @@ if (token && userRole) {
   margin-bottom: 8px;
 }
 .button span {
-  margin-right: 13px;
+  margin-right: 10px;
   width: 32px;
   height: 24px;
 }
