@@ -1,7 +1,7 @@
 <template>
   <main class="container">
     <span class="block text-center rounded-t-lg p-3 font-semibold text-lg bg-[url('https://tinyurl.com/4zf8nrhf')]">
-      All Advisor
+      My Advisor
     </span>
 
     <div class="content">
