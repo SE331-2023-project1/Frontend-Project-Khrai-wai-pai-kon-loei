@@ -1,5 +1,6 @@
 <template>
   <main class="events">
+
     <!-- Search bar -->
     <div class="search-bar-container">
       <form class="search-bar">

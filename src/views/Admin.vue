@@ -1,5 +1,26 @@
 <template>
   <main class="container">
+
+      <!-- Search bar -->
+      <div class="search-bar-container">
+      <form class="search-bar">
+        <label
+          for="default-search"
+          class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+        >
+          Search
+        </label>
+        <div class="relative flex items-center">
+          <input
+            v-model="searchKeyword"
+            @input="searchUsers"
+            placeholder="Search by keyword"
+            class="w-full p-3 text-gray-700 rounded-full mb-5 focus:outline-none focus:ring-4 focus:ring-blue-300 border border-gray-300"
+          />
+        </div>
+      </form>
+    </div>
+
     <span class="block text-center rounded-t-lg p-3 font-semibold text-lg bg-[url('https://tinyurl.com/4zf8nrhf')]">
       All Advisor
     </span>
