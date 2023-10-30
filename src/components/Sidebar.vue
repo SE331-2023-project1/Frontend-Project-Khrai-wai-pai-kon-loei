@@ -84,7 +84,7 @@ if (token && userRole) {
         v-if="authStore.isAdmin() || authStore.isTeacher()"
       >
         <span class="material-symbols-outlined">groups_2</span>
-        <span class="text"> Advisee Student</span>
+        <span class="text"> My Student</span>
       </RouterLink>
       <RouterLink
         :to="{ name: 'Advisee' }"
@@ -120,7 +120,7 @@ if (token && userRole) {
         v-if="authStore.isTeacher() || authStore.isAdmin()"
       >
         <span class="material-symbols-outlined">Announcement</span>
-        <span class="text">CreateAnnouncement</span>
+        <span class="text">Create Announcement</span>
       </RouterLink>
       <RouterLink
         :to="{ name: 'profile-page' }"
