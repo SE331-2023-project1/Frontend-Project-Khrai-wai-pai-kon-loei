@@ -6,6 +6,7 @@ export interface Student {
   id: number;
   profileimage: string;
   department: string;
+  email: String;
   teacher: {
     id: number;
     images: string[]; // Replace with the actual type

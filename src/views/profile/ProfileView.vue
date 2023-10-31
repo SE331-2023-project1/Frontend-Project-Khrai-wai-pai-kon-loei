@@ -5,6 +5,8 @@ import { useStudentAllStore } from '@/stores/all_student'
 import * as yup from 'yup'
 import type { Student } from '@/type'
 import { onMounted, ref } from 'vue'
+import { useAuthStore } from '@/stores/auth'
+import { useMessageStore } from '@/stores/message'
 
 const studentStore = useStudentAllStore()
 const isEdit = ref(false)
@@ -27,20 +29,36 @@ const { errors, handleSubmit } = useForm({
   // validationSchema,
 
   initialValues: {
-    id: student.value?.id,
-    username: student.value?.username,
-    firstName: student.value?.firstname,
-    lastName: student.value?.lastname,
+    id: student.value?.user.id,
+    username: student.value?.name,
+    firstName: student.value?.user.firstname,
+    lastName: student.value?.user.lastname,
     email: student.value?.email
   }
 })
 
+const storeMessage = useMessageStore();
+const authStore = useAuthStore();
 const { value: username } = useField<string>('username')
 const { value: firstName } = useField<string>('firstName')
 const { value: lastName } = useField<string>('lastName')
 const { value: email } = useField<string>('email')
 
-const onSubmit = handleSubmit((values) => {
+const onSubmit = handleSubmit(async (values) => {
+  try {
+    console.log(values)
+    console.log(values.id)
+    await authStore.studentUpdateProfile(values.id as unknown as string, values.firstName, values.lastName);
+    storeMessage.updateMessage('Update profile successful');
+    setTimeout(() => {
+      storeMessage.resetMessage();
+    }, 4000);
+  } catch (error) {
+    storeMessage.updateMessage('Could not update profile');
+    setTimeout(() => {
+      storeMessage.resetMessage();
+    }, 3000);
+  }
   console.log('username: ' + values.username)
   console.log('firstName: ' + values.firstName)
   console.log('lastName: ' + values.lastName)
