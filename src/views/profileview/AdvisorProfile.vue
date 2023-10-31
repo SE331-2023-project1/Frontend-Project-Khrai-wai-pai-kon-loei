@@ -101,14 +101,14 @@ export default {
         {
           name: "Alice",
           surname: "Johnson",
-          profileimage: "https://example.com/alice-image.jpg",
-          studentID: "55555",
+          profileimage: "https://tinyurl.com/36447cuj",
+          studentID: "35189",
         },
         {
           name: "Bob",
           surname: "Wilson",
-          profileimage: "https://example.com/bob-image.jpg",
-          studentID: "77777",
+          profileimage: "https://tinyurl.com/4tj76eeu",
+          studentID: "95636",
         },
       ],
       showAddStudentDropdownList: false,
