@@ -4,7 +4,6 @@
       Advisor Profile
     </span>
 
-
     <div style="background-color: #fff9fd;">
       <div class="p-6 rounded-lg shadow-md space-y-4">
         <div class="center-profile">
@@ -13,19 +12,16 @@
               <img class="w-28 h-28 object-cover shadow-lg" :src="profile.image" />
             </div>
 
-
             <div>
               <div class="grid grid-cols-1 gap-1 pt-5 pb-1.5 sm:grid-cols-2 sm:gap-4">
                 <dt class="text-xl font-semibold px-8">ID</dt>
                 <h1 class="text-lg"> {{ profile.id }}</h1>
               </div>
 
-
               <div class="grid grid-cols-1 gap-1 py-1.5 sm:grid-cols-2 sm:gap-4">
                 <dt class="text-xl font-semibold px-8">Name</dt>
                 <h1 class="text-lg"> {{ profile.name }} {{ profile.surname }}</h1>
               </div>
-
 
               <div class="grid grid-cols-1 gap-1 py-1.5 sm:grid-cols-2 sm:gap-4">
                 <dt class="text-xl font-semibold px-8">Department</dt>
@@ -35,27 +31,42 @@
           </div>
         </div>
 
-
         <!-- Student information -->
+        <div class="flex items-center justify-between">
         <h1 class="text-xl font-semibold">List of Advisee Students</h1>
+          <!-- Add Button -->
+          <button @click="toggleAddStudentDropdown" class="bg-green-500 text-white py-1 px-2 rounded-md">Add Student</button>
+        </div>
+
+        <!-- Student list dropdown -->
+          <div class="mt-4" v-if="showAddStudentDropdownList">
+            <ul>
+              <li v-for="(student, studentIndex) in availableStudents" :key="studentIndex">
+                <div class="flex items-center space-x-2">
+                  <img class="w-12 h-12 object-cover rounded-full shadow-lg" :src="student.profileimage" />
+                  <button @click="addStudent(student)">{{ student.name }} {{ student.surname }}</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+
         <div class="bg-white p-3 rounded-lg shadow-md space-y-4" v-for="(student, studentIndex) in students" :key="studentIndex">
           <div class="flex items-center space-x-8">
             <img class="w-24 h-24 object-cover rounded-full shadow-lg" :src="student.profileimage" />
             <div>
               <h1 class="text-xl font-bold">Name: {{ student.name }} {{ student.surname }}</h1>
               <h1 class="text-lg py-2">Student ID: {{ student.studentID }}</h1>
+
+              <!-- Remove Button -->
               <button @click="removeStudent(studentIndex)" class="bg-red-500 text-white py-1 px-2 rounded-md">Remove</button>
             </div>
           </div>
         </div>
 
-
-        <button @click="addStudent" class="bg-green-500 text-white py-1 px-2 rounded-md">Add Student</button>
       </div>
     </div>
   </main>
 </template>
-
 
 <script>
 export default {
@@ -85,16 +96,32 @@ export default {
           studentID: "67890",
         },
       ],
+
+      // Student list dropdown
+      availableStudents: [
+        {
+          name: "Alice",
+          surname: "Johnson",
+          profileimage: "https://example.com/alice-image.jpg",
+          studentID: "55555",
+        },
+        {
+          name: "Bob",
+          surname: "Wilson",
+          profileimage: "https://example.com/bob-image.jpg",
+          studentID: "77777",
+        },
+      ],
+      showAddStudentDropdownList: false,
     };
   },
   methods: {
-    addStudent() {
-      this.students.push({
-        name: "New Student",
-        surname: "New",
-        profileimage: "https://example.com/default-profile-image.jpg",
-        studentID: "00000",
-      });
+    toggleAddStudentDropdown() {
+      this.showAddStudentDropdownList = !this.showAddStudentDropdownList;
+    },
+    addStudent(student) {
+      this.students.push(student);
+      this.showAddStudentDropdownList = false;
     },
     removeStudent(index) {
       this.students.splice(index, 1);
@@ -102,6 +129,3 @@ export default {
   },
 };
 </script>
-
-
-
