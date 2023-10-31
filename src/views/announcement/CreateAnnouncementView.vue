@@ -4,7 +4,7 @@
       <h1 class="text-center pb-4 font-semibold text-xl text-gray-600">
         Create New Announcement
       </h1>
-      <form>
+      <form @submit.prevent="onSubmit">
         <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
           <div class="grid gap-8 gap-y-8 text-sm grid-cols-1">
             <div>
@@ -19,7 +19,7 @@
 
             <div>
               <label for="content">Announcement Detail</label>
-              <textarea
+              <textarea v-model="content"
                 id="message"
                 rows="4"
                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:border-[#42b883] mt-1 px-4 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#42b883] sm:text-sm sm:leading-6"
@@ -37,6 +37,7 @@
                   <div class="flex text-sm text-gray-600">
                     <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-gray-600 hover:text-[#bc69be] focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#42b883]">
                       <span class="">Upload a file</span>
+                      <ImageUpload v-model="images" @imageUploaded="handleImageUploaded" />
                       <input id="file-upload" name="file-upload" type="file" class="sr-only">
                     </label>
                     <p class="pl-1 text-gray-600">or drag and drop</p>
@@ -98,13 +99,26 @@ const { errors, handleSubmit } = useForm({
   validationSchema,
 
   initialValues: {
+    content: "",
+    images: [],
     title: "",
   },
 });
 
 const { value: title } = useField<string>("title");
+const { value: content } = useField<string>("content");
+// const { value: images } = useField<string[]>("images");
 
+const images = ref<string[]>([]);
 const onSubmit = handleSubmit((values) => {
   console.log("title: " + values.title);
+  console.log("content: " + values.content);
+  console.log("image: " + images.value[0]);
 });
+
+// ฟังก์ชันที่จะรับ URL จาก ImageUpload
+const handleImageUploaded = (url: string) => {
+  images.value.push(url);
+  console.log("image: " + images.value);
+};
 </script>
