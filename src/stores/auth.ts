@@ -103,20 +103,22 @@ export const useAuthStore = defineStore('auth', {
       })
       return response
     },
-    async studentUpdateProfile(id: string, firstName: string, lastName: string) {
+    async studentUpdateProfile(id: string, firstName: string, lastName: string, Emailaddress: string) {
       const response = await apiClient.put('/updateStudent', {
         id: id,
         name: firstName,
         surname: lastName,
+        email: Emailaddress,
 
       })
       return response
     },
-    async teacherUpdateProfile(id: string, firstName: string, lastName: string) {
+    async teacherUpdateProfile(id: string, firstName: string, lastName: string, Emailaddress: string) {
       const response = await apiClient.put('/updateTeacher', {
         id: id,
         name: firstName,
         surname: lastName,
+        email: Emailaddress,
       })
       return response
     },

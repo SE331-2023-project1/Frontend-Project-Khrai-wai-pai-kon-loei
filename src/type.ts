@@ -17,6 +17,7 @@ export interface Student {
     parentId: number;
     firstname: string;
     lastname: string;
+    email: string;
   };
 }
 
@@ -38,6 +39,7 @@ export interface Teacher {
     parentId: number;
     firstname: string;
     lastname: string;
+    email: string;
   };
 }
 

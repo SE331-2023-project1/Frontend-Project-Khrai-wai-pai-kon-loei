@@ -1,77 +1,82 @@
 <script setup lang="ts">
-import InputText from '@/components/InputText.vue'
-import { useField, useForm } from 'vee-validate'
-import { useStudentAllStore } from '@/stores/all_student'
-import * as yup from 'yup'
-import type { Student } from '@/type'
-import { onMounted, ref } from 'vue'
-import { useAuthStore } from '@/stores/auth'
-import { useMessageStore } from '@/stores/message'
+import InputText from "@/components/InputText.vue";
+import { useField, useForm } from "vee-validate";
+import { useStudentAllStore } from "@/stores/all_student";
+import * as yup from "yup";
+import type { Student } from "@/type";
+import { onMounted, ref } from "vue";
+import { useAuthStore } from "@/stores/auth";
+import { useMessageStore } from "@/stores/message";
 
-const studentStore = useStudentAllStore()
-const isEdit = ref(false)
-const student = ref<Student | null>(null)
+const studentStore = useStudentAllStore();
+const isEdit = ref(false);
+const student = ref<Student | null>(null);
 
-const userId = localStorage.getItem('user_id') as string
+const userId = localStorage.getItem("user_id") as string;
 
 onMounted(async () => {
-  student.value = await studentStore.getStudentById(userId)
-})
+  student.value = await studentStore.getStudentById(userId);
+});
 
 const validationSchema = yup.object({
-  username: yup.string().required('The username is required'),
-  firstName: yup.string().required('The first name is required'),
-  lastName: yup.string().required('The last name is required'),
-  email: yup.string().email().required('The email is required')
-})
+  username: yup.string().required("The username is required"),
+  firstName: yup.string().required("The first name is required"),
+  lastName: yup.string().required("The last name is required"),
+  email: yup.string().email().required("The email is required"),
+});
 
 const { errors, handleSubmit } = useForm({
   validationSchema,
 
   initialValues: {
-    id: student.value?.user.id || '', // Set a default value if id is not available
-    username: student.value?.name || '',
-    firstName: student.value?.user.firstname || '',
-    lastName: student.value?.user.lastname || '',
-    email: student.value?.email || ''
-  }
-})
+    id: student.value?.user.id || "", // Set a default value if id is not available
+    username: student.value?.name || "",
+    firstName: student.value?.user.firstname || "",
+    lastName: student.value?.user.lastname || "",
+    email: student.value?.user.email || "",
+  },
+});
 
 const storeMessage = useMessageStore();
 const authStore = useAuthStore();
-const { value: username } = useField<string>('username')
-const { value: firstName } = useField<string>('firstName')
-const { value: lastName } = useField<string>('lastName')
-const { value: email } = useField<string>('email')
+const { value: username } = useField<string>("username");
+const { value: firstName } = useField<string>("firstName");
+const { value: lastName } = useField<string>("lastName");
+const { value: email } = useField<string>("email");
 
 const onSubmit = handleSubmit(async (values) => {
   try {
-    console.log(values)
-    await authStore.studentUpdateProfile(localStorage.getItem("student_id")as string, values.firstName, values.lastName);
-    storeMessage.updateMessage('Update profile successful');
+    console.log(values);
+    await authStore.studentUpdateProfile(
+      localStorage.getItem("student_id") as string,
+      values.firstName,
+      values.lastName,
+      values.email,
+    );
+    storeMessage.updateMessage("Update profile successful");
     setTimeout(() => {
       storeMessage.resetMessage();
     }, 4000);
   } catch (error) {
-    storeMessage.updateMessage('Could not update profile');
+    storeMessage.updateMessage("Could not update profile");
     setTimeout(() => {
       storeMessage.resetMessage();
     }, 3000);
   }
-  console.log('username: ' + values.username)
-  console.log('firstName: ' + values.firstName)
-  console.log('lastName: ' + values.lastName)
-  console.log('email: ' + values.email)
-})
+  console.log("username: " + values.username);
+  console.log("firstName: " + values.firstName);
+  console.log("lastName: " + values.lastName);
+  console.log("email: " + values.email);
+});
 
 const getRole = () => {
-  return localStorage.getItem('user_role')
-}
+  return localStorage.getItem("user_role");
+};
 
 const editToggle = () => {
-  isEdit.value = !isEdit.value
-  console.log(isEdit.value)
-}
+  isEdit.value = !isEdit.value;
+  console.log(isEdit.value);
+};
 </script>
 
 <template>
@@ -89,10 +94,24 @@ const editToggle = () => {
           {{ student?.firstname }}
           {{ student?.lastname }}
         </h2>
-        <p class="text-center text-gray-600 mt-1">{{ getRole() }}</p>
+        <p
+          class="text-center text-gray-600 mt-1"
+          style="
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #333;
+            border: 2px solid #999;
+            padding: 10px;
+            border-radius: 10px;
+          "
+        >
+          {{ getRole() }}
+        </p>
       </div>
     </div>
-    <div class="col-span-12 lg:col-span-8 bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+    <div
+      class="col-span-12 lg:col-span-8 bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6"
+    >
       <div class="w-full flex items-center justify-between">
         <h2 class="font-semibold text-xl text-gray-600 mb-2">Profile</h2>
         <button
@@ -103,7 +122,9 @@ const editToggle = () => {
             icon="pen-to-square"
             class="text-gray-900 mr-2 group-hover:text-white"
           />
-          <span class="text-gray-900 font-medium group-hover:text-white">Edit</span>
+          <span class="text-gray-900 font-medium group-hover:text-white"
+            >Edit</span
+          >
         </button>
       </div>
       <form @submit.prevent="onSubmit">
