@@ -40,9 +40,7 @@
                       <ImageUpload v-model="images" @imageUploaded="handleImageUploaded" />
                       <input id="file-upload" name="file-upload" type="file" class="sr-only">
                     </label>
-                    <p class="pl-1 text-gray-600">or drag and drop</p>
                   </div>
-                  <p class="text-xs text-gray-600">PNG, JPG, GIF up to 10MB</p>
                 </div>
               </div>
             </div>
