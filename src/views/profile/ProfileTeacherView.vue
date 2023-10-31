@@ -46,8 +46,13 @@ const { value: email } = useField<string>('email')
 
 const onSubmit = handleSubmit(async (values) => {
   try {
-    console.log(values)
-    await authStore.teacherUpdateProfile(localStorage.getItem("teacher_id")as string, values.firstName, values.lastName);
+    console.log(values);
+    await authStore.teacherUpdateProfile(
+      localStorage.getItem("teacher_id") as string,
+      values.firstName,
+      values.lastName,
+      values.email,
+    );
     storeMessage.updateMessage('Update profile successful');
     setTimeout(() => {
       storeMessage.resetMessage();
