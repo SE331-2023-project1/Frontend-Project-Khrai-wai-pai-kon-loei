@@ -25,9 +25,11 @@ import TeacherRegister from "../views/TeacherForm.vue"
 import Admin from "../views/Admin.vue";
 import Advisor from "../views/Advisor.vue";
 import ProfileView from '../views/profile/ProfileView.vue'
+import ProfileTeacherView from '../views/profile/ProfileTeacherView.vue'
 import Advisee from '../views/Advisee.vue';
 import AdvisorProfile from '../views/profileview/AdvisorProfile.vue';
 import StudentProfile from '../views/profileview/StudentProfile.vue';
+
 // router.beforeEach(async () => {
   NProgress.start()
 //   const teacherStore = useTeacherStore()
@@ -135,6 +137,11 @@ const router = createRouter({
       path: '/profile',
       name: 'profile-page',
       component: ProfileView
+    },
+    {
+      path: '/profile',
+      name: 'profile-teacher',
+      component: ProfileTeacherView
     },
     {
       path: '/student/:studentid',

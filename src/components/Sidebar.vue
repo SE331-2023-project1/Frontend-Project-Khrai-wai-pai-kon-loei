@@ -126,7 +126,17 @@ if (token && userRole) {
         :to="{ name: 'profile-page' }"
         class="button"
         v-if="
-          authStore.isAdmin() || authStore.isTeacher() || authStore.isStudent()
+          authStore.isStudent()
+        "
+      >
+        <span class="material-symbols-outlined"> account_circle </span>
+        <span class="text">Profile</span>
+      </RouterLink>
+      <RouterLink
+        :to="{ name: 'profile-teacher' }"
+        class="button"
+        v-if="
+          authStore.isAdmin() || authStore.isTeacher()
         "
       >
         <span class="material-symbols-outlined"> account_circle </span>

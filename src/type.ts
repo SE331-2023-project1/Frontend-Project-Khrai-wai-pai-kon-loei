@@ -28,6 +28,7 @@ export interface Teacher {
   id: number;
   images: [];
   department: string;
+  email: string;
   students: {
     id: number;
     images: [];
