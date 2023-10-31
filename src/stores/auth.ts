@@ -16,11 +16,11 @@ export const useAuthStore = defineStore('auth', {
   state: () => ({
     token: null as string | null,
     userRole: null as string[] | null,
+    studentId: null as string | null,
+    teacherId: null as string | null,
   }),
   getters: {
-    // currentUserName(): string {
-    //   return this.username || ''
-    // }
+    
   },
   actions: {
     async login(username: string, password: string) {
@@ -31,8 +31,12 @@ export const useAuthStore = defineStore('auth', {
       console.log(response.data)
       this.token = response.data.access_token
       this.userRole = response.data.user_role
+      this.studentId = response.data.student_id
+      this.teacherId = response.data.teacher_id
       localStorage.setItem('access_token', this.token as string)
       localStorage.setItem('user_role', JSON.stringify(this.userRole))
+      localStorage.setItem('student_id', this.studentId as string)
+      localStorage.setItem('teacher_id', this.teacherId as string)
       return response
     },
     async studentRegister(

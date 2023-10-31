@@ -18,22 +18,22 @@ onMounted(async () => {
   student.value = await studentStore.getStudentById(userId)
 })
 
-// const validationSchema = yup.object({
-//   username: yup.string().required('The username is required'),
-//   firstName: yup.string().required('The first name is required'),
-//   lastName: yup.string().required('The last name is required'),
-//   email: yup.string().email().required('The email is required')
-// })
+const validationSchema = yup.object({
+  username: yup.string().required('The username is required'),
+  firstName: yup.string().required('The first name is required'),
+  lastName: yup.string().required('The last name is required'),
+  email: yup.string().email().required('The email is required')
+})
 
 const { errors, handleSubmit } = useForm({
-  // validationSchema,
+  validationSchema,
 
   initialValues: {
-    id: student.value?.user.id,
-    username: student.value?.name,
-    firstName: student.value?.user.firstname,
-    lastName: student.value?.user.lastname,
-    email: student.value?.email
+    id: student.value?.user.id || '', // Set a default value if id is not available
+    username: student.value?.name || '',
+    firstName: student.value?.user.firstname || '',
+    lastName: student.value?.user.lastname || '',
+    email: student.value?.email || ''
   }
 })
 
@@ -47,8 +47,7 @@ const { value: email } = useField<string>('email')
 const onSubmit = handleSubmit(async (values) => {
   try {
     console.log(values)
-    console.log(values.id)
-    await authStore.studentUpdateProfile(values.id as unknown as string, values.firstName, values.lastName);
+    await authStore.studentUpdateProfile(localStorage.getItem("student_id")as string, values.firstName, values.lastName);
     storeMessage.updateMessage('Update profile successful');
     setTimeout(() => {
       storeMessage.resetMessage();
