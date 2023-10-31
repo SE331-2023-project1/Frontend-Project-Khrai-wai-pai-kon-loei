@@ -33,22 +33,22 @@
 
         <!-- Student information -->
         <div class="flex items-center justify-between">
-        <h1 class="text-xl font-semibold">List of Advisee Students</h1>
+          <h1 class="text-xl font-semibold">List of Advisee Students</h1>
           <!-- Add Button -->
           <button @click="toggleAddStudentDropdown" class="bg-green-500 text-white py-1 px-2 rounded-md">Add Student</button>
         </div>
 
         <!-- Student list dropdown -->
-          <div class="mt-4" v-if="showAddStudentDropdownList">
-            <ul>
-              <li v-for="(student, studentIndex) in availableStudents" :key="studentIndex">
-                <div class="flex items-center space-x-2">
-                  <img class="w-12 h-12 object-cover rounded-full shadow-lg" :src="student.profileimage" />
-                  <button @click="addStudent(student)">{{ student.name }} {{ student.surname }}</button>
-                </div>
-              </li>
-            </ul>
-          </div>
+        <div class="mt-4" v-if="showAddStudentDropdownList">
+          <ul>
+            <li v-for="(student, studentIndex) in filteredAvailableStudents" :key="studentIndex">
+              <div class="flex items-center space-x-2">
+                <img class="w-12 h-12 object-cover rounded-full shadow-lg" :src="student.profileimage" />
+                <button @click="addStudent(student, studentIndex)">{{ student.name }} {{ student.surname }}</button>
+              </div>
+            </li>
+          </ul>
+        </div>
 
         <div class="bg-white p-3 rounded-lg shadow-md space-y-4" v-for="(student, studentIndex) in students" :key="studentIndex">
           <div class="flex items-center space-x-8">
@@ -62,7 +62,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </main>
@@ -115,16 +114,25 @@ export default {
       showAddStudentDropdownList: false,
     };
   },
+  computed: {
+    filteredAvailableStudents() {
+      return this.availableStudents.filter((student) => {
+        return !this.students.some((advisee) => advisee.studentID === student.studentID);
+      });
+    },
+  },
   methods: {
     toggleAddStudentDropdown() {
       this.showAddStudentDropdownList = !this.showAddStudentDropdownList;
     },
-    addStudent(student) {
+    addStudent(student, studentIndex) {
       this.students.push(student);
+      this.availableStudents.splice(studentIndex, 1);
       this.showAddStudentDropdownList = false;
     },
-    removeStudent(index) {
-      this.students.splice(index, 1);
+    removeStudent(studentIndex) {
+      const removedStudent = this.students.splice(studentIndex, 1)[0];
+      this.availableStudents.push(removedStudent);
     },
   },
 };
