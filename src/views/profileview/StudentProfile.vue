@@ -60,7 +60,7 @@
               ></textarea>
               <button
                 @click="submitComment"
-                class="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition duration-300 ease-in-out"
+                class="mt-2 px-4 py-2 text-white bg-[#c98ecf] rounded-lg hover:bg-[#b062b7]"
               >
                 Submit
               </button>
